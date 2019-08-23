@@ -81,7 +81,7 @@ MEM : process(tb_clk)
 begin
     if tb_clk'event and tb_clk = '1' then
         if enable_wire = '1' then
-            if mem_we = '1' then
+            if mem_we = '1' then 
                 RAM(conv_integer(mem_address))  <= mem_i_data;
                 mem_o_data                      <= mem_i_data after 2 ns;
             else
