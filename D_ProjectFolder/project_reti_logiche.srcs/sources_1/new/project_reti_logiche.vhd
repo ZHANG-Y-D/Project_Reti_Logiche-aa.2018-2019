@@ -42,7 +42,7 @@ end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
 
-type state_type is (IDLE,RST,S0,S1,S2,S3,S4);
+type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5);
 signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
 signal maschera  : std_logic_vector(7 downto 0) := (others => '0');
@@ -64,80 +64,48 @@ begin
         end if;
      end process state_reg;
 
-    lambda: process(current_state,next_state,S0,S1,S2,S3,S4,S5)
+    --state change
+    lambda: process(current_state, i_clk, i_rst,i_start)
     begin
-        case current_state is
-            when IDLE => 
-                --This just for init state.
-            when RST =>
-                if i_start = '1' then
-                    next_state <= S0;
-                end if;
-            when S0 =>
+        if rising_edge(i_clk) then
+            case current_state is
+                when IDLE => 
+                    --This just for init state.
+                when RST =>
+                    if i_start = '1' then
+                        next_state <= S0;
+                    end if;
+                when S0 =>
+                    next_state <= S1;
+                when S1 =>
+                    next_state <= S2;
+                when S2 =>
+                    next_state <= S3;
+                when S3 =>
+                    
+                when S4 =>
                 
-                
-    end process lambda;
+                when S5 =>
+                    -- Output,the last state.
+            end case;
+      end if;         
+    end process lambda ;
 
-
-    --get maschera,punto da valutare
-    p_ADDR_MASC : process (i_clk)
+    delta:process(current_state,i_clk)
     begin
-    
-        o_we <= '0';
-        o_en <= '1';
-        
-        if i_clk'event and i_clk = '1' then
-            o_address <= std_logic_vector(to_unsigned( 2 , 16));
-            maschera <= i_data;
-        end if;
-                if i_clk'event and i_clk = '1' then
-
-            o_address <= std_logic_vector(to_unsigned( 17 , 16));
-            asse_x <= i_data;
-        end if;
-        
-        if i_clk'event and i_clk = '1' then
-            o_address <= std_logic_vector(to_unsigned( 18 , 16));
-            asse_y <= i_data;
-        end if;
-        
-        
-    end process p_ADDR_MASC;
-    
-    
-    
-    get_points : process is
-    begin
-        --if masc_pundavalu_ok = '1' then
-        
-        
-      --  end if;
-    end process get_points;
-    
-    
-    
-    calcolare_distance : process is
-    begin
-        --if masc_pundavalu_ok = '1' then
-        
-       
-       -- end if;
-    end process calcolare_distance;
-    
-    
-    
-    output_val_masc : process is
-    begin
-            o_en <= '1';
-            o_we <= '1';
-            o_data <= output_masc;
-            o_address <= "0000000000010011";
-            wait on i_data;
-            wait until i_start = '0';
-            o_done <= '0';
-        
-    
-    end process output_val_masc;
-    
+        if rising_edge(i_clk) then
+            case current_state is
+                   when IDLE =>
+                    --This just for init state.
+                   when RST =>
+                   when S0 =>
+                   when S1 =>
+                   when S2 =>
+                   when S3 =>
+                   when S4 =>
+                   when S5 =>
+            end case;
+         end if;       
+    end process delta;
     
 end Behavioral;
