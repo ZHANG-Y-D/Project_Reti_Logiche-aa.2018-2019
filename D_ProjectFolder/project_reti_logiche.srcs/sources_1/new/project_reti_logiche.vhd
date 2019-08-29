@@ -45,15 +45,11 @@ architecture Behavioral of project_reti_logiche is
 type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5);
 signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
-signal maschera  : std_logic_vector(7 downto 0) := (others => '0');
-signal asse_x  : std_logic_vector(7 downto 0) := (others => '0');
-signal asse_y  : std_logic_vector(7 downto 0) := (others => '0');
-signal output_masc  : std_logic_vector(7 downto 0) := (others => '0');
-signal pun_x  : std_logic_vector(7 downto 0) := (others => '0');
-signal pun_y  : std_logic_vector(7 downto 0) := (others => '0');
+signal finished_masc : std_logic := '0';
+signal todo_output : std_logic := '0';
+
 
 begin
-
     --state reg
     state_reg:process(i_clk,i_rst)
     begin
@@ -65,9 +61,11 @@ begin
      end process state_reg;
 
     --state change
-    lambda: process(current_state, i_clk, i_rst,i_start)
+    lambda: process(current_state, i_clk,i_start,finished_masc,todo_output)
     begin
-        if rising_edge(i_clk) then
+        if i_rst = '1' then
+            next_state <= RST;
+        elsif rising_edge(i_clk) then
             case current_state is
                 when IDLE => 
                     --This just for init state.
@@ -82,9 +80,17 @@ begin
                 when S2 =>
                     next_state <= S3;
                 when S3 =>
-                    
+                    if  todo_output = '1' then
+                        next_state <= S5;
+                    else 
+                        next_state <= S4;
+                    end if;
                 when S4 =>
-                
+                    if finished_masc = '1' then
+                        next_state <= S5;
+                    else 
+                        next_state <= S3;
+                    end if;
                 when S5 =>
                     -- Output,the last state.
             end case;
@@ -92,12 +98,17 @@ begin
     end process lambda ;
 
     delta:process(current_state,i_clk)
+    
+    
+    
+    
     begin
         if rising_edge(i_clk) then
             case current_state is
                    when IDLE =>
                     --This just for init state.
                    when RST =>
+                   
                    when S0 =>
                    when S1 =>
                    when S2 =>
