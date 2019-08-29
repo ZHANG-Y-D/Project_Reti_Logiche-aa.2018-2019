@@ -60,7 +60,7 @@ begin
         end if;
      end process state_reg;
 
-    --state change
+    --change state
     lambda: process(current_state, i_clk,i_start,finished_masc,todo_output)
     begin
         if i_rst = '1' then
@@ -97,24 +97,46 @@ begin
       end if;         
     end process lambda ;
 
+
+
+    ---Define state
     delta:process(current_state,i_clk)
-    
-    
-    
+    variable masc_di_uscita : std_logic_vector(7 downto 0) := (others => '0');
+    variable punt_da_valutare_x : std_logic_vector(7 downto 0) := (others => '0');
+    variable punt_da_valutare_y : std_logic_vector(7 downto 0) := (others => '0');
+    variable punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
+    variable punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
+    variable distance_min : std_logic_vector(15 downto 0) := (others => '0');
+    variable index_masc : std_logic_vector(7 downto 0) := (others => '0');
     
     begin
         if rising_edge(i_clk) then
             case current_state is
-                   when IDLE =>
+                  when IDLE =>
                     --This just for init state.
-                   when RST =>
-                   
-                   when S0 =>
-                   when S1 =>
-                   when S2 =>
-                   when S3 =>
-                   when S4 =>
-                   when S5 =>
+                  when RST =>
+                     o_address <= (others => '0');
+                     o_done <= '0';
+                     o_en <= '0';          
+                     o_we <= '0';         
+                     o_data <= (others => '0');       
+                     finished_masc <= '0';
+                     todo_output <= '0';
+                     masc_di_uscita := (others => '0');
+                     punt_da_valutare_x := (others => '0');
+                     punt_da_valutare_y := (others => '0');
+                     punt_centroide_x := (others => '0');
+                     punt_centroide_y := (others => '0');
+                     distance_min := (others => '0');
+                     index_masc := (others => '0');
+                      
+                  when S0 =>
+                     
+                  when S1 =>
+                  when S2 =>
+                  when S3 =>
+                  when S4 =>
+                  when S5 =>
             end case;
          end if;       
     end process delta;
