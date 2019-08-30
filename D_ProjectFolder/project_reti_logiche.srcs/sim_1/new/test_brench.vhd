@@ -23,10 +23,15 @@ type ram_type is array (65535 downto 0) of std_logic_vector(7 downto 0);
 signal RAM: ram_type := (
                          0 => std_logic_vector(to_unsigned( 185 , 8)),
                          --0 => std_logic_vector(to_unsigned( 185 , 8)),
+                         --1 => std_logic_vector(to_unsigned( 75 , 8)),
+                         --2 => std_logic_vector(to_unsigned( 32 , 8)),
+                         --3 => std_logic_vector(to_unsigned( 111 , 8)),
+                         --4 => std_logic_vector(to_unsigned( 213 , 8)),
                          1 => std_logic_vector(to_unsigned( 75 , 8)),
                          2 => std_logic_vector(to_unsigned( 32 , 8)),
                          3 => std_logic_vector(to_unsigned( 111 , 8)),
                          4 => std_logic_vector(to_unsigned( 213 , 8)),
+                         
                          5 => std_logic_vector(to_unsigned( 79 , 8)),
                          6 => std_logic_vector(to_unsigned( 33 , 8)),
                          7 => std_logic_vector(to_unsigned( 1 , 8)),
@@ -41,6 +46,10 @@ signal RAM: ram_type := (
                          16 => std_logic_vector(to_unsigned( 121 , 8)),
                          17 => std_logic_vector(to_unsigned( 78 , 8)),
                          18 => std_logic_vector(to_unsigned( 33 , 8)),
+                         
+                         --17 => std_logic_vector(to_unsigned( 78 , 8)),
+                         --18 => std_logic_vector(to_unsigned( 33 , 8)),
+                         
 			 others => (others =>'0'));
 
 component project_reti_logiche is
@@ -111,6 +120,7 @@ begin
 
     -- Maschera di output = 00010001
     assert RAM(19) = std_logic_vector(to_unsigned( 17 , 8)) report "TEST FALLITO" severity failure;
+    --assert RAM(19) = std_logic_vector(to_unsigned( 17 , 8)) report "TEST FALLITO" severity failure;
  
     assert false report "Simulation Ended!, TEST PASSATO" severity failure;
 end process test;

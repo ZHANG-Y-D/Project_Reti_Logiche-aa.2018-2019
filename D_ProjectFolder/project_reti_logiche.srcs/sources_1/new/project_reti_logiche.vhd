@@ -168,17 +168,22 @@ begin
                   when S3 =>
                       punt_centroide_x <= (others => '0');
                       punt_centroide_y <= (others => '0');
-                      if masc_di_entrata(index_masc) = '0' then
-                         operand_valid <= '0';
-                         index_masc <= index_masc + 1;
+                      
+                      
+                        
+                      
+                     if index_masc <= 6 then
+                          if masc_di_entrata(index_masc) = '0' then
+                             operand_valid <= '0';
+                             index_masc <= index_masc + 1;
+                          else
+                             o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
+                             operand_valid <= '1';
+                          end if;
                       else
-                         o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
-                         operand_valid <= '1';
-                      end if;
-                     
-                     if index_masc >= 7 then
                         todo_output <= '1';
-                     end if;
+                      end if;                     
+                     
                   
                   when S4 =>
                      punt_centroide_x <= i_data;
@@ -193,7 +198,7 @@ begin
                         o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
                      else
                         operand_valid <= '0';
-                        if todo_output = '0'and rising_edge(i_clk) then
+                        if todo_output = '0'and rising_edge(i_clk) and index_masc <=6 then
                             index_masc <= index_masc + 1;
                         end if;
                      end if;
@@ -221,7 +226,7 @@ begin
                      end if;
                      
                      operand_valid <= '0';
-                     if todo_output = '0' and rising_edge(i_clk) then
+                     if todo_output = '0' and rising_edge(i_clk) and index_masc <=6  then
                             index_masc <= index_masc + 1;
                      end if;
                   
