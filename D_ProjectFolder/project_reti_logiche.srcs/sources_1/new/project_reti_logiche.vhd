@@ -61,17 +61,17 @@ begin
      end process state_reg;
 
     --change state
-    lambda: process(current_state, i_clk,i_start,finished_masc,todo_output)
+    lambda: process(current_state,i_rst, i_clk,i_start,finished_masc,todo_output)
     begin
         if i_rst = '1' then
             next_state <= RST;
-        elsif rising_edge(i_clk) then
+        else
             case current_state is
                 when IDLE => 
                     --This just for init state.
                 when RST =>
                     if i_start = '1' then
-                        next_state <= S0;
+                        next_state <= S0;     
                     end if;
                 when S0 =>
                     next_state <= S1;
@@ -110,14 +110,12 @@ begin
     variable index_masc : std_logic_vector(7 downto 0) := (others => '0');
     
     begin
-        if rising_edge(i_clk) then
             case current_state is
                   when IDLE =>
                     --This just for init state.
                   when RST =>
                      o_address <= (others => '0');
                      o_done <= '0';
-                     o_en <= '0';          
                      o_we <= '0';         
                      o_data <= (others => '0');       
                      finished_masc <= '0';
@@ -129,16 +127,33 @@ begin
                      punt_centroide_y := (others => '0');
                      distance_min := (others => '0');
                      index_masc := (others => '0');
+                     if i_start = '1' then
+                        o_en <= '1';
+                     end if;
                       
                   when S0 =>
+                     --Read maschera valore
+                     masc_di_uscita := i_data;
+                     o_address <= std_logic_vector(to_unsigned(17,16));
+                     
                      
                   when S1 =>
+                     --Read the punto da valutare X
+                     
+                     punt_da_valutare_x := i_data;
+                     o_address <= std_logic_vector(to_unsigned(18,16));
+                     
                   when S2 =>
+                     --Read the punto da valutare Y
+                     punt_da_valutare_x := i_data;    
+                  
                   when S3 =>
+                    
+                  
                   when S4 =>
                   when S5 =>
             end case;
-         end if;       
+          
     end process delta;
     
 end Behavioral;

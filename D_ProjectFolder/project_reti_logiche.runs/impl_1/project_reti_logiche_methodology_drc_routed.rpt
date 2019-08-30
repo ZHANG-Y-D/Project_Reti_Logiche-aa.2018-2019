@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Jul 20 16:02:35 2019
+| Date         : Fri Aug 30 11:26:11 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_methodology -file project_reti_logiche_methodology_drc_routed.rpt -pb project_reti_logiche_methodology_drc_routed.pb -rpx project_reti_logiche_methodology_drc_routed.rpx
 | Design       : project_reti_logiche
@@ -23,12 +23,64 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 0
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
+             Violations found: 10
++-----------+----------+-----------------------------+------------+
+| Rule      | Severity | Description                 | Violations |
++-----------+----------+-----------------------------+------------+
+| TIMING-17 | Warning  | Non-clocked sequential cell | 3          |
+| TIMING-20 | Warning  | Non-clocked latch           | 7          |
++-----------+----------+-----------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+TIMING-17#1 Warning
+Non-clocked sequential cell  
+The clock pin FSM_sequential_current_state_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Warning
+Non-clocked sequential cell  
+The clock pin FSM_sequential_current_state_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Warning
+Non-clocked sequential cell  
+The clock pin FSM_sequential_current_state_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch FSM_sequential_next_state_reg[0] cannot be properly analyzed as its control pin FSM_sequential_next_state_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch FSM_sequential_next_state_reg[1] cannot be properly analyzed as its control pin FSM_sequential_next_state_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch FSM_sequential_next_state_reg[2] cannot be properly analyzed as its control pin FSM_sequential_next_state_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch o_address_reg[0] cannot be properly analyzed as its control pin o_address_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch o_address_reg[1] cannot be properly analyzed as its control pin o_address_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch o_address_reg[4] cannot be properly analyzed as its control pin o_address_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch o_en_reg cannot be properly analyzed as its control pin o_en_reg/G is not reached by a timing clock
+Related violations: <none>
+
 

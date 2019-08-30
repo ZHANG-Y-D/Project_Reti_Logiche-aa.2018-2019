@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sat Jul 20 16:23:44 2019
+// Date        : Thu Aug 29 15:43:23 2019
 // Host        : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file
 //               D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/project_tb_func_synth.v

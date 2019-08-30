@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Jul 20 16:02:37 2019
+| Date         : Fri Aug 30 11:26:12 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file project_reti_logiche_timing_summary_routed.rpt -pb project_reti_logiche_timing_summary_routed.pb -rpx project_reti_logiche_timing_summary_routed.rpx -warn_on_violation
 | Design       : project_reti_logiche
@@ -52,7 +52,15 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 0 register/latch pins with no clock.
+ There are 3 register/latch pins with no clock driven by root clock pin: i_clk (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: i_start (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: FSM_sequential_current_state_reg[0]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: FSM_sequential_current_state_reg[1]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: FSM_sequential_current_state_reg[2]/Q (HIGH)
 
 
 2. checking constant_clock
@@ -67,21 +75,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 0 pins that are not constrained for maximum delay.
+ There are 16 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 0 input ports with no input delay specified.
+ There are 2 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 0 ports with no output delay specified.
+ There are 4 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
