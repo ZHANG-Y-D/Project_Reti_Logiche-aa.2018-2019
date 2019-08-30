@@ -42,7 +42,7 @@ end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
 
-type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5,S6);
+type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5,S6,S7);
 signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
 signal operand_valid : std_logic := '0';
@@ -52,7 +52,6 @@ signal distance_min : std_logic_vector(15 downto 0) := (others => '0');
 signal difference_value_x :std_logic_vector(15 downto 0) := (others => '0');
 signal difference_value_y :std_logic_vector(15 downto 0) := (others => '0');
 signal difference_value :std_logic_vector(15 downto 0) := (others => '0');
-
 signal punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
 signal punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
 
@@ -108,7 +107,10 @@ begin
                     else    --00/10
                         next_state <= S3;
                     end if;
-                when S6 =>    
+                when S6 =>
+                        next_state <= S7;
+                when S7 =>
+                        next_state <= S7;
             end case;
       end if;         
     end process lambda ;
@@ -116,16 +118,11 @@ begin
 
 
     ---Define state
-    delta:process(current_state,i_clk,operand_valid,index_masc,distance_min,difference_value_x,
+    delta:process(current_state,i_clk,index_masc,distance_min,difference_value_x,
                     difference_value_y,difference_value,punt_centroide_x,punt_centroide_y,todo_output)
     variable masc_di_entrata : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_x : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_y : std_logic_vector(7 downto 0) := (others => '0');
-    
-    
-    
-    
-    variable masc_di_uscita : std_logic_vector(7 downto 0) := (others => '0');
     
    
     begin
@@ -150,7 +147,6 @@ begin
                      difference_value_x <= (others => '0');
                      difference_value_y <= (others => '0');
                      difference_value <= (others => '0');
-                     masc_di_uscita := (others => '0');
                      if i_start = '1' then
                         o_en <= '1';
                      end if;
@@ -212,14 +208,16 @@ begin
                      
                      difference_value <= difference_value_x + difference_value_y;
                      
-                     if distance_min > difference_value and rising_edge(i_clk) then
-                        distance_min <= difference_value;
-                        masc_di_uscita := (others => '0');
-                        masc_di_uscita(index_masc) := '1';
-                     elsif distance_min = difference_value then
-                        masc_di_uscita(index_masc) := '1';
-                     else
-                        --do nothing
+                     if rising_edge(i_clk) then
+                         if distance_min > difference_value then
+                            distance_min <= difference_value;
+                            o_data <= (others => '0');
+                            o_data(index_masc) <= '1' after 2 ns;
+                         elsif distance_min = difference_value then
+                            o_data(index_masc) <= '1' after 2 ns;
+                         else
+                            --do nothing
+                         end if;
                      end if;
                      
                      operand_valid <= '0';
@@ -228,7 +226,13 @@ begin
                      end if;
                   
                   when S6 =>
-                        -- Todo output
+                     o_address <= std_logic_vector(to_unsigned(19,16));
+                     o_we <= '1';
+                     o_done <= '1';
+                  
+                  when S7 =>
+                      o_done <= '0';
+                      
             end case;
           
     end process delta;

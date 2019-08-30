@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Fri Aug 30 11:23:53 2019
-# Process ID: 11028
+# Start of session at: Fri Aug 30 21:17:39 2019
+# Process ID: 8408
 # Current directory: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.runs/synth_1
 # Command line: vivado.exe -log project_reti_logiche.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project_reti_logiche.tcl
 # Log file: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.runs/synth_1/project_reti_logiche.vds

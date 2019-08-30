@@ -10,19 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="400000000fs"></ZoomStartTime>
-      <ZoomEndTime time="1622226315fs"></ZoomEndTime>
-      <Cursor1Time time="950000000fs"></Cursor1Time>
+      <ZoomStartTime time="1547840000fs"></ZoomStartTime>
+      <ZoomEndTime time="2616304758fs"></ZoomEndTime>
+      <Cursor1Time time="2242131000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="271"></NameColumnWidth>
+      <NameColumnWidth column_width="259"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wvobject fp_name="/project_tb/tb_done" type="logic">
-      <obj_property name="ElementShortName">tb_done</obj_property>
-      <obj_property name="ObjectShortName">tb_done</obj_property>
-   </wvobject>
+   <WVObjectSize size="21" />
    <wvobject fp_name="/project_tb/enable_wire" type="logic">
       <obj_property name="ElementShortName">enable_wire</obj_property>
       <obj_property name="ObjectShortName">enable_wire</obj_property>
@@ -107,5 +103,14 @@
       <obj_property name="ElementShortName">distance_min[15:0]</obj_property>
       <obj_property name="ObjectShortName">distance_min[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/o_data" type="array">
+      <obj_property name="ElementShortName">o_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/tb_done" type="logic">
+      <obj_property name="ElementShortName">tb_done</obj_property>
+      <obj_property name="ObjectShortName">tb_done</obj_property>
    </wvobject>
 </wave_config>
