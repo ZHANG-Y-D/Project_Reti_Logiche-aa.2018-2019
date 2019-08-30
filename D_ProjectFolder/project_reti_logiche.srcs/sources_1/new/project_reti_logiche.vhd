@@ -49,7 +49,10 @@ signal operand_valid : std_logic := '0';
 signal todo_output : std_logic := '0';
 signal index_masc : integer range 0 to 7;
 signal distance_min : std_logic_vector(15 downto 0) := (others => '0');
+signal difference_value_x :std_logic_vector(15 downto 0) := (others => '0');
+signal difference_value_y :std_logic_vector(15 downto 0) := (others => '0');
 signal difference_value :std_logic_vector(15 downto 0) := (others => '0');
+
 signal punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
 signal punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
 
@@ -113,7 +116,8 @@ begin
 
 
     ---Define state
-    delta:process(current_state,i_clk)
+    delta:process(current_state,i_clk,operand_valid,index_masc,distance_min,difference_value_x,
+                    difference_value_y,difference_value,punt_centroide_x,punt_centroide_y,todo_output)
     variable masc_di_entrata : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_x : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_y : std_logic_vector(7 downto 0) := (others => '0');
@@ -138,10 +142,13 @@ begin
                      masc_di_entrata := (others => '0');
                      punt_da_valutare_x := (others => '0');
                      punt_da_valutare_y := (others => '0');
+                     
                      punt_centroide_x <= (others => '0');
                      punt_centroide_y <= (others => '0');
                      distance_min <= std_logic_vector(to_unsigned( 512 , 16));
                      index_masc <= 0;
+                     difference_value_x <= (others => '0');
+                     difference_value_y <= (others => '0');
                      difference_value <= (others => '0');
                      masc_di_uscita := (others => '0');
                      if i_start = '1' then
@@ -180,12 +187,12 @@ begin
                   when S4 =>
                      punt_centroide_x <= i_data;
                      if punt_da_valutare_x > punt_centroide_x then
-                        difference_value <= punt_da_valutare_x - punt_centroide_x + "0000000000000000";
+                        difference_value_x <= punt_da_valutare_x - punt_centroide_x + "0000000000000000";
                      else
-                        difference_value <= punt_centroide_x - punt_da_valutare_x + "0000000000000000";
+                        difference_value_x <= punt_centroide_x - punt_da_valutare_x + "0000000000000000";
                      end if;
                      
-                     if distance_min >= difference_value then
+                     if distance_min >= difference_value_x then
                         operand_valid <= '1';
                         o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
                      else
@@ -198,12 +205,14 @@ begin
                   when S5 =>
                     punt_centroide_y <= i_data;
                     if punt_da_valutare_y > punt_centroide_y then
-                        difference_value <= (punt_da_valutare_y - punt_centroide_y) + difference_value;
+                        difference_value_y <= punt_da_valutare_y - punt_centroide_y + "0000000000000000";
                      else
-                        difference_value <= (punt_centroide_y - punt_da_valutare_y) + difference_value;
+                        difference_value_y <= punt_centroide_y - punt_da_valutare_y + "0000000000000000";
                      end if;
                      
-                     if distance_min > difference_value then
+                     difference_value <= difference_value_x + difference_value_y;
+                     
+                     if distance_min > difference_value and rising_edge(i_clk) then
                         distance_min <= difference_value;
                         masc_di_uscita := (others => '0');
                         masc_di_uscita(index_masc) := '1';

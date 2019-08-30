@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a200tfbg484-1" LaunchTime="1567157061">
+  <File Type="BITSTR-BMM" Name="project_reti_logiche_bd.bmm"/>
   <File Type="ROUTE-PWR" Name="project_reti_logiche_power_routed.rpt"/>
   <File Type="PA-TCL" Name="project_reti_logiche.tcl"/>
-  <File Type="BITSTR-BMM" Name="project_reti_logiche_bd.bmm"/>
+  <File Type="OPT-DCP" Name="project_reti_logiche_opt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="project_reti_logiche_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="project_reti_logiche_reports.tcl"/>
-  <File Type="OPT-DCP" Name="project_reti_logiche_opt.dcp"/>
   <File Type="OPT-DRC" Name="project_reti_logiche_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="project_reti_logiche.hwdef"/>
   <File Type="PWROPT-DCP" Name="project_reti_logiche_pwropt.dcp"/>
@@ -25,19 +25,20 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="project_reti_logiche_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="project_reti_logiche_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="project_reti_logiche_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="project_reti_logiche_drc_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="project_reti_logiche.ltx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="project_reti_logiche_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="project_reti_logiche_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="project_reti_logiche.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="project_reti_logiche_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="project_reti_logiche_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="project_reti_logiche_methodology_drc_routed.pb"/>
   <File Type="BITSTR-SYSDEF" Name="project_reti_logiche.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="project_reti_logiche_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="project_reti_logiche_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="project_reti_logiche_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="project_reti_logiche_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="project_reti_logiche_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="project_reti_logiche_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="project_reti_logiche_timing_summary_routed.rpx"/>
+  <File Type="RDI-RDI" Name="project_reti_logiche.vdi"/>
   <File Type="ROUTE-CLK" Name="project_reti_logiche_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="project_reti_logiche_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="project_reti_logiche_bus_skew_routed.pb"/>
@@ -48,7 +49,6 @@
   <File Type="BITSTR-RBT" Name="project_reti_logiche.rbt"/>
   <File Type="BITSTR-NKY" Name="project_reti_logiche.nky"/>
   <File Type="BG-DRC" Name="project_reti_logiche.drc"/>
-  <File Type="RDI-RDI" Name="project_reti_logiche.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>

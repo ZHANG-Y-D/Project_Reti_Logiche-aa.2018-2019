@@ -10,22 +10,30 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="974080000fs"></ZoomStartTime>
-      <ZoomEndTime time="2431697363fs"></ZoomEndTime>
-      <Cursor1Time time="1147475000fs"></Cursor1Time>
+      <ZoomStartTime time="400000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1622226315fs"></ZoomEndTime>
+      <Cursor1Time time="950000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="108"></ValueColumnWidth>
+      <NameColumnWidth column_width="271"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/project_tb/tb_done" type="logic">
       <obj_property name="ElementShortName">tb_done</obj_property>
       <obj_property name="ObjectShortName">tb_done</obj_property>
    </wvobject>
-   <wvobject fp_name="/project_tb/mem_address" type="array">
-      <obj_property name="ElementShortName">mem_address[15:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_address[15:0]</obj_property>
+   <wvobject fp_name="/project_tb/enable_wire" type="logic">
+      <obj_property name="ElementShortName">enable_wire</obj_property>
+      <obj_property name="ObjectShortName">enable_wire</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/mem_we" type="logic">
+      <obj_property name="ElementShortName">mem_we</obj_property>
+      <obj_property name="ObjectShortName">mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/mem_i_data" type="array">
+      <obj_property name="ElementShortName">mem_i_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_i_data[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/tb_rst" type="logic">
@@ -40,14 +48,14 @@
       <obj_property name="ElementShortName">tb_clk</obj_property>
       <obj_property name="ObjectShortName">tb_clk</obj_property>
    </wvobject>
+   <wvobject fp_name="/project_tb/mem_address" type="array">
+      <obj_property name="ElementShortName">mem_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_address[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/project_tb/mem_o_data" type="array">
       <obj_property name="ElementShortName">mem_o_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">mem_o_data[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/project_tb/mem_i_data" type="array">
-      <obj_property name="ElementShortName">mem_i_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_i_data[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/UUT/operand_valid" type="logic">
@@ -66,31 +74,9 @@
       <obj_property name="ElementShortName">next_state</obj_property>
       <obj_property name="ObjectShortName">next_state</obj_property>
    </wvobject>
-   <wvobject fp_name="/project_tb/mem_we" type="logic">
-      <obj_property name="ElementShortName">mem_we</obj_property>
-      <obj_property name="ObjectShortName">mem_we</obj_property>
-   </wvobject>
-   <wvobject fp_name="/project_tb/enable_wire" type="logic">
-      <obj_property name="ElementShortName">enable_wire</obj_property>
-      <obj_property name="ObjectShortName">enable_wire</obj_property>
-   </wvobject>
-   <wvobject fp_name="/project_tb/c_CLOCK_PERIOD" type="other">
-      <obj_property name="ElementShortName">c_CLOCK_PERIOD</obj_property>
-      <obj_property name="ObjectShortName">c_CLOCK_PERIOD</obj_property>
-   </wvobject>
    <wvobject fp_name="/project_tb/UUT/index_masc" type="other">
       <obj_property name="ElementShortName">index_masc</obj_property>
       <obj_property name="ObjectShortName">index_masc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/project_tb/UUT/distance_min" type="array">
-      <obj_property name="ElementShortName">distance_min[15:0]</obj_property>
-      <obj_property name="ObjectShortName">distance_min[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/project_tb/UUT/difference_value" type="array">
-      <obj_property name="ElementShortName">difference_value[15:0]</obj_property>
-      <obj_property name="ObjectShortName">difference_value[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/UUT/punt_centroide_x" type="array">
       <obj_property name="ElementShortName">punt_centroide_x[7:0]</obj_property>
@@ -101,5 +87,25 @@
       <obj_property name="ElementShortName">punt_centroide_y[7:0]</obj_property>
       <obj_property name="ObjectShortName">punt_centroide_y[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/difference_value_x" type="array">
+      <obj_property name="ElementShortName">difference_value_x[15:0]</obj_property>
+      <obj_property name="ObjectShortName">difference_value_x[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/difference_value_y" type="array">
+      <obj_property name="ElementShortName">difference_value_y[15:0]</obj_property>
+      <obj_property name="ObjectShortName">difference_value_y[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/difference_value" type="array">
+      <obj_property name="ElementShortName">difference_value[15:0]</obj_property>
+      <obj_property name="ObjectShortName">difference_value[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/distance_min" type="array">
+      <obj_property name="ElementShortName">distance_min[15:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_min[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
