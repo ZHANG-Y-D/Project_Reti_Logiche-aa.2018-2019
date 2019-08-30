@@ -107,7 +107,7 @@ begin
     variable punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
     variable distance_min : std_logic_vector(15 downto 0) := (others => '0');
-    variable index_masc : std_logic_vector(7 downto 0) := (others => '0');
+    variable index_masc : integer range 0 to 7;
     
     begin
             case current_state is
@@ -126,7 +126,7 @@ begin
                      punt_centroide_x := (others => '0');
                      punt_centroide_y := (others => '0');
                      distance_min := (others => '0');
-                     index_masc := (others => '0');
+                     index_masc := 0;
                      if i_start = '1' then
                         o_en <= '1';
                      end if;
@@ -136,19 +136,28 @@ begin
                      masc_di_uscita := i_data;
                      o_address <= std_logic_vector(to_unsigned(17,16));
                      
-                     
                   when S1 =>
                      --Read the punto da valutare X
-                     
                      punt_da_valutare_x := i_data;
                      o_address <= std_logic_vector(to_unsigned(18,16));
                      
                   when S2 =>
                      --Read the punto da valutare Y
-                     punt_da_valutare_x := i_data;    
-                  
+                     punt_da_valutare_y := i_data;
+                       
                   when S3 =>
-                    
+                     if masc_di_uscita(index_masc) = '1' then
+                        --Todo all operations
+                        --read x1, radu x1, compare min,if ok, goto y if
+                        
+                        
+                     end if;
+                     
+                     index_masc := index_masc + 1;
+                     
+                     if index_masc = 7 then
+                        todo_output <= '1';
+                     end if;
                   
                   when S4 =>
                   when S5 =>

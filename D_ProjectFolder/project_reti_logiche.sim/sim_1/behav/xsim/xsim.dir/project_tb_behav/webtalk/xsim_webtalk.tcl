@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Fri Aug 30 11:23:22 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Fri Aug 30 11:47:03 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.3 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2405991" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "aea0f983-bc40-4d57-b562-185d910920a2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "1935f5143669436c895687eff4ae9bc7" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "78" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "85" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz" -context "user_environment"
@@ -36,7 +36,7 @@ webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Processes -value "6" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "8" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "0.67_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "44876_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3807999760 -regid "" -xml D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "0.65_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "44932_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 2137797512 -regid "" -xml D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/behav/xsim/xsim.dir/project_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate
