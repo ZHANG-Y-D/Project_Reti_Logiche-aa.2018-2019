@@ -42,10 +42,10 @@ end project_reti_logiche;
 
 architecture Behavioral of project_reti_logiche is
 
-type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5);
+type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5,S6);
 signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
-signal finished_masc : std_logic := '0';
+signal operand_valid : std_logic := '0';
 signal todo_output : std_logic := '0';
 
 
@@ -61,7 +61,7 @@ begin
      end process state_reg;
 
     --change state
-    lambda: process(current_state,i_rst, i_clk,i_start,finished_masc,todo_output)
+    lambda: process(current_state,i_rst, i_clk,i_start,operand_valid,todo_output)
     begin
         if i_rst = '1' then
             next_state <= RST;
@@ -80,19 +80,28 @@ begin
                 when S2 =>
                     next_state <= S3;
                 when S3 =>
-                    if  todo_output = '1' then
-                        next_state <= S5;
-                    else 
+                    if  operand_valid = '1' then --11/10
                         next_state <= S4;
+                    elsif todo_output = '0' then --00
+                        next_state <= S3;
+                    else    --01
+                        next_state <= S6;
                     end if;
                 when S4 =>
-                    if finished_masc = '1' then
+                    if operand_valid = '1' then --10/11
                         next_state <= S5;
-                    else 
+                    elsif todo_output = '0' then --00
                         next_state <= S3;
+                    else   --01
+                        next_state <= S6;
                     end if;
                 when S5 =>
-                    -- Output,the last state.
+                    if  todo_output = '1' then --01/11
+                        next_state <= S6;
+                    else    --00/10
+                        next_state <= S3;
+                    end if;
+                when S6 =>    
             end case;
       end if;         
     end process lambda ;
@@ -108,6 +117,7 @@ begin
     variable punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
     variable distance_min : std_logic_vector(15 downto 0) := (others => '0');
     variable index_masc : integer range 0 to 7;
+   
     
     begin
             case current_state is
@@ -118,7 +128,7 @@ begin
                      o_done <= '0';
                      o_we <= '0';         
                      o_data <= (others => '0');       
-                     finished_masc <= '0';
+                     operand_valid <= '0';
                      todo_output <= '0';
                      masc_di_uscita := (others => '0');
                      punt_da_valutare_x := (others => '0');
@@ -144,23 +154,23 @@ begin
                   when S2 =>
                      --Read the punto da valutare Y
                      punt_da_valutare_y := i_data;
-                       
-                  when S3 =>
-                     if masc_di_uscita(index_masc) = '1' then
-                        --Todo all operations
-                        --read x1, radu x1, compare min,if ok, goto y if
-                        
-                        
-                     end if;
                      
-                     index_masc := index_masc + 1;
+                  when S3 =>
+                      if masc_di_uscita(index_masc) = '0' then
+                         index_masc := index_masc + 1;
+                      else
+                         o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
+                         operand_valid <= '1';
+                      end if;
                      
                      if index_masc = 7 then
                         todo_output <= '1';
                      end if;
                   
                   when S4 =>
+                  
                   when S5 =>
+                  when S6 =>
             end case;
           
     end process delta;

@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1359000001fs"></ZoomEndTime>
-      <Cursor1Time time="6000fs"></Cursor1Time>
+      <ZoomEndTime time="2000000001fs"></ZoomEndTime>
+      <Cursor1Time time="306227000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="144"></ValueColumnWidth>
+      <ValueColumnWidth column_width="138"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/project_tb/tb_done" type="logic">
       <obj_property name="ElementShortName">tb_done</obj_property>
       <obj_property name="ObjectShortName">tb_done</obj_property>
@@ -50,13 +50,29 @@
       <obj_property name="ObjectShortName">mem_i_data[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/project_tb/enable_wire" type="logic">
-      <obj_property name="ElementShortName">enable_wire</obj_property>
-      <obj_property name="ObjectShortName">enable_wire</obj_property>
+   <wvobject fp_name="/project_tb/UUT/operand_valid" type="logic">
+      <obj_property name="ElementShortName">operand_valid</obj_property>
+      <obj_property name="ObjectShortName">operand_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/todo_output" type="logic">
+      <obj_property name="ElementShortName">todo_output</obj_property>
+      <obj_property name="ObjectShortName">todo_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/mem_we" type="logic">
       <obj_property name="ElementShortName">mem_we</obj_property>
       <obj_property name="ObjectShortName">mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/enable_wire" type="logic">
+      <obj_property name="ElementShortName">enable_wire</obj_property>
+      <obj_property name="ObjectShortName">enable_wire</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/c_CLOCK_PERIOD" type="other">
       <obj_property name="ElementShortName">c_CLOCK_PERIOD</obj_property>
