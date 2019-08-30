@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="2000000001fs"></ZoomEndTime>
-      <Cursor1Time time="306227000fs"></Cursor1Time>
+      <ZoomStartTime time="974080000fs"></ZoomStartTime>
+      <ZoomEndTime time="2431697363fs"></ZoomEndTime>
+      <Cursor1Time time="1147475000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="283"></NameColumnWidth>
-      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+      <ValueColumnWidth column_width="108"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="19" />
    <wvobject fp_name="/project_tb/tb_done" type="logic">
       <obj_property name="ElementShortName">tb_done</obj_property>
       <obj_property name="ObjectShortName">tb_done</obj_property>
@@ -77,5 +77,29 @@
    <wvobject fp_name="/project_tb/c_CLOCK_PERIOD" type="other">
       <obj_property name="ElementShortName">c_CLOCK_PERIOD</obj_property>
       <obj_property name="ObjectShortName">c_CLOCK_PERIOD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/index_masc" type="other">
+      <obj_property name="ElementShortName">index_masc</obj_property>
+      <obj_property name="ObjectShortName">index_masc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/distance_min" type="array">
+      <obj_property name="ElementShortName">distance_min[15:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_min[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/difference_value" type="array">
+      <obj_property name="ElementShortName">difference_value[15:0]</obj_property>
+      <obj_property name="ObjectShortName">difference_value[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/punt_centroide_x" type="array">
+      <obj_property name="ElementShortName">punt_centroide_x[7:0]</obj_property>
+      <obj_property name="ObjectShortName">punt_centroide_x[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/punt_centroide_y" type="array">
+      <obj_property name="ElementShortName">punt_centroide_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">punt_centroide_y[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
