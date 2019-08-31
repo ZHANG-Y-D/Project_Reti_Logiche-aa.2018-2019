@@ -47,13 +47,8 @@ signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
 signal operand_valid : std_logic := '0';
 signal todo_output : std_logic := '0';
-signal index_masc : integer range 0 to 7;
-signal distance_min : std_logic_vector(15 downto 0) := (others => '0');
-signal difference_value_x :std_logic_vector(15 downto 0) := (others => '0');
-signal difference_value_y :std_logic_vector(15 downto 0) := (others => '0');
-signal difference_value :std_logic_vector(15 downto 0) := (others => '0');
-signal punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
-signal punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
+signal finished_init : std_logic := '0';
+
 
 begin
     --state reg
@@ -67,20 +62,19 @@ begin
      end process state_reg;
 
     --change state
-    lambda: process(current_state,i_rst, i_clk,i_start,operand_valid,todo_output)
+    lambda: process(current_state,i_rst,i_start,operand_valid,todo_output,finished_init)
     begin
-        if i_rst = '1' then
-            next_state <= RST;
-        else
             case current_state is
                 when IDLE => 
-                    --This just for init state.
+                    if i_rst = '1' then
+                         next_state <= RST;
+                    end if;
                 when RST =>
-                    if i_start = '1' then
+                    if finished_init = '1' then
                         next_state <= S0;     
                     end if;
                 when S0 =>
-                    next_state <= S1;
+                        next_state <= S1;
                 when S1 =>
                     next_state <= S2;
                 when S2 =>
@@ -107,31 +101,34 @@ begin
                     else    --00/10
                         next_state <= S3;
                     end if;
+                    
                 when S6 =>
                         next_state <= S7;
                 when S7 =>
                         next_state <= S7;
             end case;
-      end if;         
+   
     end process lambda ;
 
 
-
     ---Define state
-    delta:process(current_state,i_clk,index_masc,distance_min,difference_value_x,
-                    difference_value_y,difference_value,punt_centroide_x,punt_centroide_y,todo_output)
+    delta:process(current_state,i_clk,i_start,i_data,todo_output)
     variable masc_di_entrata : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_x : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_da_valutare_y : std_logic_vector(7 downto 0) := (others => '0');
-    
+    variable index_masc : integer range 0 to 7;
+    variable distance_min : std_logic_vector(15 downto 0) := (others => '0');
+    variable difference_value_x :std_logic_vector(15 downto 0) := (others => '0');
+    variable difference_value_y :std_logic_vector(15 downto 0) := (others => '0');
+    variable difference_value :std_logic_vector(15 downto 0) := (others => '0');
+    variable punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
+    variable punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
    
     begin
-        
             case current_state is
                   when IDLE =>
-                    --This just for init state.
+                    
                   when RST =>
-                     o_address <= (others => '0');
                      o_done <= '0';
                      o_we <= '0';         
                      o_data <= (others => '0');       
@@ -140,22 +137,25 @@ begin
                      masc_di_entrata := (others => '0');
                      punt_da_valutare_x := (others => '0');
                      punt_da_valutare_y := (others => '0');
-                     
-                     punt_centroide_x <= (others => '0');
-                     punt_centroide_y <= (others => '0');
-                     distance_min <= std_logic_vector(to_unsigned( 512 , 16));
-                     index_masc <= 0;
-                     difference_value_x <= (others => '0');
-                     difference_value_y <= (others => '0');
-                     difference_value <= (others => '0');
+                     finished_init <= '0';
+                     punt_centroide_x := (others => '0');
+                     punt_centroide_y := (others => '0');
+                     distance_min := std_logic_vector(to_unsigned( 512 , 16));
+                     index_masc := 0;
+                     difference_value_x := (others => '0');
+                     difference_value_y := (others => '0');
+                     difference_value := (others => '0');
                      if i_start = '1' then
+                        o_address <= (others => '0');
                         o_en <= '1';
+                        finished_init <= '1';
                      end if;
-                      
+                     
                   when S0 =>
                      --Read maschera valore
                      masc_di_entrata := i_data;
                      o_address <= std_logic_vector(to_unsigned(17,16));
+                    
                      
                   when S1 =>
                      --Read the punto da valutare X
@@ -167,56 +167,59 @@ begin
                      punt_da_valutare_y := i_data;
                      
                   when S3 =>
-                      punt_centroide_x <= (others => '0');
-                      punt_centroide_y <= (others => '0');
+                      punt_centroide_x := (others => '0');
+                      punt_centroide_y := (others => '0');
                       
-                      
-                        
-                      
-                     if index_masc <= 6 then
-                          if masc_di_entrata(index_masc) = '0' then
-                             operand_valid <= '0';
-                             index_masc <= index_masc + 1;
+                    
+                         if index_masc <= 6 then
+                              if masc_di_entrata(index_masc) = '0' then
+                                 operand_valid <= '0';
+                                 index_masc := index_masc + 1;
+                              else
+                                 o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
+                                 operand_valid <= '1';
+                              end if;
                           else
-                             o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
-                             operand_valid <= '1';
-                          end if;
-                      else
-                        todo_output <= '1';
-                      end if;                     
-                     
+                            todo_output <= '1';
+                          end if;                     
+                
                   
                   when S4 =>
-                     punt_centroide_x <= i_data;
+                  
+                  
+                     punt_centroide_x := i_data;
                      if punt_da_valutare_x > punt_centroide_x then
-                        difference_value_x <= punt_da_valutare_x - punt_centroide_x + "0000000000000000";
+                        difference_value_x := punt_da_valutare_x - punt_centroide_x + "0000000000000000";
                      else
-                        difference_value_x <= punt_centroide_x - punt_da_valutare_x + "0000000000000000";
+                        difference_value_x := punt_centroide_x - punt_da_valutare_x + "0000000000000000";
                      end if;
                      
+                   
                      if distance_min >= difference_value_x then
                         operand_valid <= '1';
                         o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
                      else
                         operand_valid <= '0';
-                        if todo_output = '0'and rising_edge(i_clk) and index_masc <=6 then
-                            index_masc <= index_masc + 1;
+                        if rising_edge(i_clk) then 
+                            if todo_output = '0' and index_masc <=6 then
+                                index_masc := index_masc + 1;
+                            end if;
                         end if;
                      end if;
                   
                   when S5 =>
-                    punt_centroide_y <= i_data;
+                    punt_centroide_y := i_data;
                     if punt_da_valutare_y > punt_centroide_y then
-                        difference_value_y <= punt_da_valutare_y - punt_centroide_y + "0000000000000000";
+                        difference_value_y := punt_da_valutare_y - punt_centroide_y + "0000000000000000";
                      else
-                        difference_value_y <= punt_centroide_y - punt_da_valutare_y + "0000000000000000";
+                        difference_value_y := punt_centroide_y - punt_da_valutare_y + "0000000000000000";
                      end if;
                      
-                     difference_value <= difference_value_x + difference_value_y;
+                     difference_value := difference_value_x + difference_value_y;
                      
                      if rising_edge(i_clk) then
                          if distance_min > difference_value then
-                            distance_min <= difference_value;
+                            distance_min := difference_value;
                             o_data <= (others => '0');
                             o_data(index_masc) <= '1' after 2 ns;
                          elsif distance_min = difference_value then
@@ -227,8 +230,10 @@ begin
                      end if;
                      
                      operand_valid <= '0';
-                     if todo_output = '0' and rising_edge(i_clk) and index_masc <=6  then
-                            index_masc <= index_masc + 1;
+                     if rising_edge(i_clk) then
+                         if todo_output = '0' and index_masc <=6  then
+                                index_masc := index_masc + 1;
+                         end if;
                      end if;
                   
                   when S6 =>
@@ -240,7 +245,6 @@ begin
                       o_done <= '0';
                       
             end case;
-          
     end process delta;
     
 end Behavioral;

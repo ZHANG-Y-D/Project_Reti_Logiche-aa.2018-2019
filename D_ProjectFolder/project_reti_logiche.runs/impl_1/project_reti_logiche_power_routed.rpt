@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Fri Aug 30 21:20:37 2019
+| Date             : Sat Aug 31 17:58:13 2019
 | Host             : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command          : report_power -file project_reti_logiche_power_routed.rpt -pb project_reti_logiche_power_summary_routed.pb -rpx project_reti_logiche_power_routed.rpx
 | Design           : project_reti_logiche
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.339        |
+| Total On-Chip Power (W)  | 0.350        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.208        |
+| Dynamic (W)              | 0.218        |
 | Device Static (W)        | 0.132        |
 | Effective TJA (C/W)      | 2.5          |
-| Max Ambient (C)          | 84.2         |
-| Junction Temperature (C) | 25.8         |
+| Max Ambient (C)          | 84.1         |
+| Junction Temperature (C) | 25.9         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,15 +52,15 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.011 |       33 |       --- |             --- |
+| Slice Logic    |     0.010 |       22 |       --- |             --- |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   LUT as Logic |     0.005 |       11 |    133800 |           <0.01 |
-|   Register     |    <0.001 |       13 |    267600 |           <0.01 |
+|   LUT as Logic |     0.005 |        4 |    133800 |           <0.01 |
+|   Register     |    <0.001 |       10 |    267600 |           <0.01 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     0.019 |       30 |       --- |             --- |
-| I/O            |     0.177 |       30 |       285 |           10.53 |
+| Signals        |     0.020 |       21 |       --- |             --- |
+| I/O            |     0.188 |       30 |       285 |           10.53 |
 | Static Power   |     0.132 |          |           |                 |
-| Total          |     0.339 |          |           |                 |
+| Total          |     0.350 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -70,11 +70,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.069 |       0.038 |      0.031 |
-| Vccaux    |       1.800 |     0.044 |       0.014 |      0.031 |
+| Vccint    |       1.000 |     0.069 |       0.039 |      0.031 |
+| Vccaux    |       1.800 |     0.045 |       0.015 |      0.031 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     0.085 |       0.080 |      0.005 |
+| Vcco18    |       1.800 |     0.090 |       0.085 |      0.005 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -137,7 +137,7 @@ Table of Contents
 +----------------------+-----------+
 | Name                 | Power (W) |
 +----------------------+-----------+
-| project_reti_logiche |     0.208 |
+| project_reti_logiche |     0.218 |
 +----------------------+-----------+
 
 

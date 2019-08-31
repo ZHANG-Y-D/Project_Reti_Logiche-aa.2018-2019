@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Aug 30 21:19:27 2019
+| Date         : Sat Aug 31 17:57:02 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file project_reti_logiche_control_sets_placed.rpt
 | Design       : project_reti_logiche
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     7 |
-| Unused register locations in slices containing registers |    43 |
+| Number of unique control sets                            |     4 |
+| Unused register locations in slices containing registers |    22 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,7 +34,7 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |            5 |
+|      1 |            2 |
 |      4 |            2 |
 +--------+--------------+
 
@@ -45,9 +45,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | No                     |               6 |            3 |
 | No           | No                    | Yes                    |               4 |            1 |
-| No           | Yes                   | No                     |               7 |            4 |
+| No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -57,16 +57,13 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------+---------------+---------------------------+------------------+----------------+
-|        Clock Signal        | Enable Signal |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+----------------------------+---------------+---------------------------+------------------+----------------+
-|  index_masc[0]_LDC_i_1_n_0 |               | index_masc[0]_LDC_i_2_n_0 |                1 |              1 |
-|  index_masc[1]_LDC_i_1_n_0 |               | index_masc[1]_LDC_i_2_n_0 |                1 |              1 |
-|  o_en_reg_i_1_n_0          |               |                           |                1 |              1 |
-|  index_masc[2]_LDC_i_1_n_0 |               | index_masc[2]_LDC_i_2_n_0 |                1 |              1 |
-|  todo_output_reg_i_2_n_0   |               |                           |                1 |              1 |
-|  i_clk_IBUF_BUFG           |               | i_rst_IBUF                |                1 |              4 |
-|  next_state_reg[3]_i_2_n_0 |               | i_rst_IBUF                |                1 |              4 |
-+----------------------------+---------------+---------------------------+------------------+----------------+
++----------------------------+---------------+------------------+------------------+----------------+
+|        Clock Signal        | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------------------+---------------+------------------+------------------+----------------+
+|  todo_output_reg_i_1_n_0   |               |                  |                1 |              1 |
+|  o_en_reg_i_1_n_0          |               |                  |                1 |              1 |
+|  i_clk_IBUF_BUFG           |               | i_rst_IBUF       |                1 |              4 |
+|  next_state_reg[3]_i_2_n_0 |               |                  |                1 |              4 |
++----------------------------+---------------+------------------+------------------+----------------+
 
 

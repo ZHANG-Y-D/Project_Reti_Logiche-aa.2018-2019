@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Aug 30 21:20:38 2019
+| Date         : Sat Aug 31 17:58:13 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file project_reti_logiche_timing_summary_routed.rpt -pb project_reti_logiche_timing_summary_routed.pb -rpx project_reti_logiche_timing_summary_routed.rpx -warn_on_violation
 | Design       : project_reti_logiche
@@ -54,19 +54,17 @@ Table of Contents
 --------------------
  There are 4 register/latch pins with no clock driven by root clock pin: i_clk (HIGH)
 
+ There are 4 register/latch pins with no clock driven by root clock pin: i_rst (HIGH)
+
  There are 5 register/latch pins with no clock driven by root clock pin: i_start (HIGH)
 
- There are 9 register/latch pins with no clock driven by root clock pin: current_state_reg[0]/Q (HIGH)
+ There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[0]/Q (HIGH)
 
  There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[1]/Q (HIGH)
 
- There are 9 register/latch pins with no clock driven by root clock pin: current_state_reg[2]/Q (HIGH)
+ There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[2]/Q (HIGH)
 
- There are 9 register/latch pins with no clock driven by root clock pin: current_state_reg[3]/Q (HIGH)
-
- There are 2 register/latch pins with no clock driven by root clock pin: index_masc[0]_LDC/Q (HIGH)
-
- There is 1 register/latch pin with no clock driven by root clock pin: index_masc[1]_LDC/Q (HIGH)
+ There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[3]/Q (HIGH)
 
 
 2. checking constant_clock
@@ -81,7 +79,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 21 pins that are not constrained for maximum delay. (HIGH)
+ There are 14 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 

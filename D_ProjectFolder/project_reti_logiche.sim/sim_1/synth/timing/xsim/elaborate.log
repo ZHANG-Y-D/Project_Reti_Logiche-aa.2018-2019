@@ -23,14 +23,10 @@ Compiling module simprims_ver.BUFG
 Compiling module simprims_ver.IBUF
 Compiling module simprims_ver.latchsre_ldce
 Compiling module simprims_ver.LDCE
-Compiling module simprims_ver.LUT4
 Compiling module simprims_ver.LUT5
+Compiling module simprims_ver.LUT4
 Compiling module simprims_ver.LUT6
-Compiling module simprims_ver.latchsre_ldpe
-Compiling module simprims_ver.LDPE(INIT=1'b0)
 Compiling module simprims_ver.OBUF
-Compiling module simprims_ver.x_lut2_mux4
-Compiling module simprims_ver.LUT2
 Compiling module xil_defaultlib.project_reti_logiche
 Compiling architecture projecttb of entity xil_defaultlib.project_tb
 Built simulation snapshot project_tb_time_synth

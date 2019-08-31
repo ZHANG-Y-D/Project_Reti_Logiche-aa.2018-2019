@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Fri Aug 30 21:51:30 2019
+// Date        : Sat Aug 31 18:01:29 2019
 // Host        : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/timing/xsim/project_tb_time_synth.v
@@ -42,15 +42,6 @@ module project_reti_logiche
   wire i_rst_IBUF;
   wire i_start;
   wire i_start_IBUF;
-  wire \index_masc[0]_LDC_i_1_n_0 ;
-  wire \index_masc[0]_LDC_i_2_n_0 ;
-  wire \index_masc[0]_LDC_n_0 ;
-  wire \index_masc[1]_LDC_i_1_n_0 ;
-  wire \index_masc[1]_LDC_i_2_n_0 ;
-  wire \index_masc[1]_LDC_n_0 ;
-  wire \index_masc[2]_LDC_i_1_n_0 ;
-  wire \index_masc[2]_LDC_i_2_n_0 ;
-  wire \index_masc[2]_LDC_n_0 ;
   wire [3:0]next_state;
   wire \next_state_reg[0]_i_1_n_0 ;
   wire \next_state_reg[1]_i_1_n_0 ;
@@ -66,8 +57,6 @@ module project_reti_logiche
   wire o_we;
   wire todo_output;
   wire todo_output_reg_i_1_n_0;
-  wire todo_output_reg_i_2_n_0;
-  wire todo_output_reg_i_3_n_0;
 
 initial begin
  $sdf_annotate("project_tb_time_synth.sdf",,,,"tool_control");
@@ -116,132 +105,48 @@ end
   IBUF i_start_IBUF_inst
        (.I(i_start),
         .O(i_start_IBUF));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
-    .INIT(1'b0)) 
-    \index_masc[0]_LDC 
-       (.CLR(\index_masc[0]_LDC_i_2_n_0 ),
-        .D(1'b1),
-        .G(\index_masc[0]_LDC_i_1_n_0 ),
-        .GE(1'b1),
-        .Q(\index_masc[0]_LDC_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'h0020)) 
-    \index_masc[0]_LDC_i_1 
-       (.I0(current_state[0]),
-        .I1(current_state[3]),
-        .I2(current_state[2]),
-        .I3(\index_masc[0]_LDC_n_0 ),
-        .O(\index_masc[0]_LDC_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h0000808C)) 
-    \index_masc[0]_LDC_i_2 
-       (.I0(\index_masc[0]_LDC_n_0 ),
-        .I1(current_state[0]),
-        .I2(current_state[2]),
-        .I3(current_state[1]),
-        .I4(current_state[3]),
-        .O(\index_masc[0]_LDC_i_2_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
-  LDCE #(
-    .INIT(1'b0)) 
-    \index_masc[1]_LDC 
-       (.CLR(\index_masc[1]_LDC_i_2_n_0 ),
-        .D(1'b1),
-        .G(\index_masc[1]_LDC_i_1_n_0 ),
-        .GE(1'b1),
-        .Q(\index_masc[1]_LDC_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h00202000)) 
-    \index_masc[1]_LDC_i_1 
-       (.I0(current_state[2]),
-        .I1(current_state[3]),
-        .I2(current_state[0]),
-        .I3(\index_masc[0]_LDC_n_0 ),
-        .I4(\index_masc[1]_LDC_n_0 ),
-        .O(\index_masc[1]_LDC_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000000900090F0)) 
-    \index_masc[1]_LDC_i_2 
-       (.I0(\index_masc[0]_LDC_n_0 ),
-        .I1(\index_masc[1]_LDC_n_0 ),
-        .I2(current_state[0]),
-        .I3(current_state[2]),
-        .I4(current_state[1]),
-        .I5(current_state[3]),
-        .O(\index_masc[1]_LDC_i_2_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
-  LDCE #(
-    .INIT(1'b0)) 
-    \index_masc[2]_LDC 
-       (.CLR(\index_masc[2]_LDC_i_2_n_0 ),
-        .D(1'b1),
-        .G(\index_masc[2]_LDC_i_1_n_0 ),
-        .GE(1'b1),
-        .Q(\index_masc[2]_LDC_n_0 ));
-  LUT6 #(
-    .INIT(64'h0020200020002000)) 
-    \index_masc[2]_LDC_i_1 
-       (.I0(current_state[2]),
-        .I1(current_state[3]),
-        .I2(current_state[0]),
-        .I3(\index_masc[2]_LDC_n_0 ),
-        .I4(\index_masc[0]_LDC_n_0 ),
-        .I5(\index_masc[1]_LDC_n_0 ),
-        .O(\index_masc[2]_LDC_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000000600060F0)) 
-    \index_masc[2]_LDC_i_2 
-       (.I0(todo_output_reg_i_3_n_0),
-        .I1(\index_masc[2]_LDC_n_0 ),
-        .I2(current_state[0]),
-        .I3(current_state[2]),
-        .I4(current_state[1]),
-        .I5(current_state[3]),
-        .O(\index_masc[2]_LDC_i_2_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDP" *) 
-  LDPE #(
     .INIT(1'b0)) 
     \next_state_reg[0] 
-       (.D(\next_state_reg[0]_i_1_n_0 ),
+       (.CLR(1'b0),
+        .D(\next_state_reg[0]_i_1_n_0 ),
         .G(\next_state_reg[3]_i_2_n_0 ),
         .GE(1'b1),
-        .PRE(i_rst_IBUF),
         .Q(next_state[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'hAEAEBFEE)) 
+    .INIT(32'hF5F0F7FF)) 
     \next_state_reg[0]_i_1 
-       (.I0(current_state[3]),
-        .I1(current_state[2]),
-        .I2(todo_output),
-        .I3(current_state[1]),
+       (.I0(todo_output),
+        .I1(current_state[1]),
+        .I2(current_state[3]),
+        .I3(current_state[2]),
         .I4(current_state[0]),
         .O(\next_state_reg[0]_i_1_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
     \next_state_reg[1] 
-       (.CLR(i_rst_IBUF),
+       (.CLR(1'b0),
         .D(\next_state_reg[1]_i_1_n_0 ),
         .G(\next_state_reg[3]_i_2_n_0 ),
         .GE(1'b1),
         .Q(next_state[1]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
-    .INIT(16'h0007)) 
+    .INIT(16'h0104)) 
     \next_state_reg[1]_i_1 
-       (.I0(current_state[0]),
-        .I1(current_state[1]),
+       (.I0(current_state[2]),
+        .I1(current_state[0]),
         .I2(current_state[3]),
-        .I3(current_state[2]),
+        .I3(current_state[1]),
         .O(\next_state_reg[1]_i_1_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
     \next_state_reg[2] 
-       (.CLR(i_rst_IBUF),
+       (.CLR(1'b0),
         .D(\next_state_reg[2]_i_1_n_0 ),
         .G(\next_state_reg[3]_i_2_n_0 ),
         .GE(1'b1),
@@ -256,34 +161,34 @@ end
         .I3(current_state[2]),
         .I4(todo_output),
         .O(\next_state_reg[2]_i_1_n_0 ));
-  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  (* XILINX_LEGACY_PRIM = "LD" *) 
   LDCE #(
     .INIT(1'b0)) 
     \next_state_reg[3] 
-       (.CLR(i_rst_IBUF),
+       (.CLR(1'b0),
         .D(\next_state_reg[3]_i_1_n_0 ),
         .G(\next_state_reg[3]_i_2_n_0 ),
         .GE(1'b1),
         .Q(next_state[3]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'hFFFFE000)) 
+    .INIT(32'hFFFFA080)) 
     \next_state_reg[3]_i_1 
-       (.I0(current_state[0]),
-        .I1(current_state[1]),
-        .I2(current_state[2]),
-        .I3(todo_output),
+       (.I0(current_state[2]),
+        .I1(current_state[0]),
+        .I2(todo_output),
+        .I3(current_state[1]),
         .I4(current_state[3]),
         .O(\next_state_reg[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'hFFFEFEFE)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFE2)) 
     \next_state_reg[3]_i_2 
-       (.I0(current_state[1]),
-        .I1(current_state[3]),
-        .I2(current_state[2]),
-        .I3(current_state[0]),
-        .I4(i_start_IBUF),
+       (.I0(i_rst_IBUF),
+        .I1(current_state[0]),
+        .I2(i_start_IBUF),
+        .I3(current_state[1]),
+        .I4(current_state[3]),
+        .I5(current_state[2]),
         .O(\next_state_reg[3]_i_2_n_0 ));
   OBUF \o_address_OBUF[0]_inst 
        (.I(1'b0),
@@ -391,34 +296,18 @@ end
     todo_output_reg
        (.CLR(1'b0),
         .D(todo_output_reg_i_1_n_0),
-        .G(todo_output_reg_i_2_n_0),
+        .G(todo_output_reg_i_1_n_0),
         .GE(1'b1),
         .Q(todo_output));
-  LUT6 #(
-    .INIT(64'h0000000000000004)) 
-    todo_output_reg_i_1
-       (.I0(todo_output_reg_i_3_n_0),
-        .I1(\index_masc[2]_LDC_n_0 ),
-        .I2(current_state[1]),
-        .I3(current_state[3]),
-        .I4(current_state[0]),
-        .I5(current_state[2]),
-        .O(todo_output_reg_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h0001)) 
-    todo_output_reg_i_2
+    todo_output_reg_i_1
        (.I0(current_state[1]),
         .I1(current_state[3]),
         .I2(current_state[0]),
         .I3(current_state[2]),
-        .O(todo_output_reg_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h7)) 
-    todo_output_reg_i_3
-       (.I0(\index_masc[0]_LDC_n_0 ),
-        .I1(\index_masc[1]_LDC_n_0 ),
-        .O(todo_output_reg_i_3_n_0));
+        .O(todo_output_reg_i_1_n_0));
 endmodule
 `ifndef GLBL
 `define GLBL

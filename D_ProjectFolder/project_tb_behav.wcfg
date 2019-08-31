@@ -3,23 +3,22 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="project_tb_func_impl.wdb" id="1">
+      <db_ref path="project_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="glbl" />
             <top_module name="project_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="2660000001fs"></ZoomEndTime>
-      <Cursor1Time time="409900000fs"></Cursor1Time>
+      <ZoomEndTime time="1817337169fs"></ZoomEndTime>
+      <Cursor1Time time="1250000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="253"></NameColumnWidth>
-      <ValueColumnWidth column_width="203"></ValueColumnWidth>
+      <ValueColumnWidth column_width="161"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="15" />
    <wvobject fp_name="/project_tb/enable_wire" type="logic">
       <obj_property name="ElementShortName">enable_wire</obj_property>
       <obj_property name="ObjectShortName">enable_wire</obj_property>
@@ -59,13 +58,13 @@
       <obj_property name="ElementShortName">todo_output</obj_property>
       <obj_property name="ObjectShortName">todo_output</obj_property>
    </wvobject>
-   <wvobject fp_name="/project_tb/UUT/current_state" type="array">
-      <obj_property name="ElementShortName">current_state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
+   <wvobject fp_name="/project_tb/UUT/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
    </wvobject>
-   <wvobject fp_name="/project_tb/UUT/next_state" type="array">
-      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
+   <wvobject fp_name="/project_tb/UUT/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
    </wvobject>
    <wvobject fp_name="/project_tb/UUT/o_data" type="array">
       <obj_property name="ElementShortName">o_data[7:0]</obj_property>
@@ -75,5 +74,14 @@
    <wvobject fp_name="/project_tb/tb_done" type="logic">
       <obj_property name="ElementShortName">tb_done</obj_property>
       <obj_property name="ObjectShortName">tb_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/i_data" type="array">
+      <obj_property name="ElementShortName">i_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/project_tb/UUT/finished_init" type="logic">
+      <obj_property name="ElementShortName">finished_init</obj_property>
+      <obj_property name="ObjectShortName">finished_init</obj_property>
    </wvobject>
 </wave_config>
