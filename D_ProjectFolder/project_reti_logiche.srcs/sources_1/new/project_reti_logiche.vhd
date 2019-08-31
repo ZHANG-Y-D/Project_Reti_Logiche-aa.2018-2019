@@ -126,6 +126,7 @@ begin
     
    
     begin
+        
             case current_state is
                   when IDLE =>
                     --This just for init state.

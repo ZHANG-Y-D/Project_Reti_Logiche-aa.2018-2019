@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Fri Aug 30 21:51:12 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Sat Aug 31 14:29:57 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.3 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2405991" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "aea0f983-bc40-4d57-b562-185d910920a2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "1935f5143669436c895687eff4ae9bc7" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "15" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "17" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz" -context "user_environment"
@@ -31,12 +31,12 @@ webtalk_add_data -client xsim -key HWCosim -value "false" -context "xsim\\comman
 webtalk_add_data -client xsim -key DPI_Used -value "false" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key Debug -value "typical" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key Simulation_Image_Code -value "194 KB" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Image_Data -value "31 KB" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Image_Data -value "32 KB" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Processes -value "433" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "79" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip unisims_ver " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "1.03_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "67808_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 1346099784 -regid "" -xml D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.xml -html D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.html -wdm D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "1.25_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "67792_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 1987525263 -regid "" -xml D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.xml -html D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.html -wdm D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate
