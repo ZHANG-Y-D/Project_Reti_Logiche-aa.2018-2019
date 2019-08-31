@@ -17,10 +17,10 @@ Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
 Compiling module unisims_ver.FDPE(INIT=1'b0)
 Compiling module unisims_ver.FDCE_default
-Compiling module unisims_ver.BUFG
-Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.latchsre_ldce
 Compiling module unisims_ver.LDCE
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.LUT5
 Compiling module unisims_ver.LUT4
 Compiling module unisims_ver.LUT6

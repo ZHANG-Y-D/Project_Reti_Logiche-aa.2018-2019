@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Aug 31 17:55:49 2019
+| Date         : Sat Aug 31 23:45:35 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_utilization -file project_reti_logiche_utilization_synth.rpt -pb project_reti_logiche_utilization_synth.pb
 | Design       : project_reti_logiche
@@ -33,9 +33,9 @@ Table of Contents
 | Slice LUTs*             |    4 |     0 |    134600 | <0.01 |
 |   LUT as Logic          |    4 |     0 |    134600 | <0.01 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         |   10 |     0 |    269200 | <0.01 |
+| Slice Registers         |   11 |     0 |    269200 | <0.01 |
 |   Register as Flip Flop |    4 |     0 |    269200 | <0.01 |
-|   Register as Latch     |    6 |     0 |    269200 | <0.01 |
+|   Register as Latch     |    7 |     0 |    269200 | <0.01 |
 | F7 Muxes                |    0 |     0 |     67300 |  0.00 |
 | F8 Muxes                |    0 |     0 |     33650 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 1     |          Yes |           - |          Set |
-| 9     |          Yes |           - |        Reset |
+| 10    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -150,7 +150,7 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | OBUF     |   27 |                  IO |
-| LDCE     |    6 |        Flop & Latch |
+| LDCE     |    7 |        Flop & Latch |
 | LUT5     |    4 |                 LUT |
 | IBUF     |    3 |                  IO |
 | FDCE     |    3 |        Flop & Latch |

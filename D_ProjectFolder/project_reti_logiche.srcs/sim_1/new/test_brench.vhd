@@ -119,7 +119,7 @@ begin
     wait until tb_done = '0';
 
     -- Maschera di output = 00010001
-    assert RAM(19) = std_logic_vector(to_unsigned( 17 , 8)) report "TEST FALLITO" severity failure;
+    assert RAM(19) = std_logic_vector(to_unsigned(17 , 8)) report "TEST FALLITO" severity failure;
     --assert RAM(19) = std_logic_vector(to_unsigned( 17 , 8)) report "TEST FALLITO" severity failure;
  
     assert false report "Simulation Ended!, TEST PASSATO" severity failure;
