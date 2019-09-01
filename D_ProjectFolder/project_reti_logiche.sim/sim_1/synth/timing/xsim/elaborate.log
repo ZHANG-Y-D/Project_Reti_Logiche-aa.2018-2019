@@ -19,10 +19,10 @@ Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
 Compiling module simprims_ver.FDPE(INIT=1'b0)
 Compiling module simprims_ver.FDCE_default
-Compiling module simprims_ver.BUFG
-Compiling module simprims_ver.IBUF
 Compiling module simprims_ver.latchsre_ldce
 Compiling module simprims_ver.LDCE
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.IBUF
 Compiling module simprims_ver.LUT5
 Compiling module simprims_ver.LUT4
 Compiling module simprims_ver.LUT6

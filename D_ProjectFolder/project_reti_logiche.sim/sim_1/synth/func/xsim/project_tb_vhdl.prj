@@ -1,5 +1,6 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"project_tb_func_synth.vhd" \
 "../../../../../project_reti_logiche.srcs/sim_1/new/test_brench.vhd" \
 
 # Do not sort compile order

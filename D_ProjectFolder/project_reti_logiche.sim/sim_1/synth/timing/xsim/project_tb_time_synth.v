@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sat Aug 31 22:41:43 2019
+// Date        : Sun Sep  1 16:06:46 2019
 // Host        : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/timing/xsim/project_tb_time_synth.v
@@ -35,6 +35,7 @@ module project_reti_logiche
   output [7:0]o_data;
 
   wire [3:0]current_state;
+  wire finished_init;
   wire i_clk;
   wire i_clk_IBUF;
   wire i_clk_IBUF_BUFG;
@@ -93,6 +94,15 @@ end
         .CLR(i_rst_IBUF),
         .D(next_state[3]),
         .Q(current_state[3]));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    finished_init_reg
+       (.CLR(1'b0),
+        .D(i_start_IBUF),
+        .G(todo_output_reg_i_1_n_0),
+        .GE(1'b1),
+        .Q(finished_init));
   BUFG i_clk_IBUF_BUFG_inst
        (.I(i_clk_IBUF),
         .O(i_clk_IBUF_BUFG));
@@ -185,7 +195,7 @@ end
     \next_state_reg[3]_i_2 
        (.I0(i_rst_IBUF),
         .I1(current_state[0]),
-        .I2(i_start_IBUF),
+        .I2(finished_init),
         .I3(current_state[1]),
         .I4(current_state[3]),
         .I5(current_state[2]),
