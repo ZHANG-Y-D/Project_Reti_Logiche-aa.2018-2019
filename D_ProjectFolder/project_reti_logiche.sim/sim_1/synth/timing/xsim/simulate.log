@@ -1,5 +1,5 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
 Failure: TEST FALLITO
-Time: 2653737 ps  Iteration: 1  Process: /project_tb/test  File: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd
-$finish called at time : 2653737 ps : File "D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd" Line 122
+Time: 2803737 ps  Iteration: 1  Process: /project_tb/test  File: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd
+$finish called at time : 2803737 ps : File "D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd" Line 122

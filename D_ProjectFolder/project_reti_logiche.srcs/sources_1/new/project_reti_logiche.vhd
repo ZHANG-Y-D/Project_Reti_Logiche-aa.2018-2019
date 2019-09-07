@@ -43,8 +43,8 @@ end project_reti_logiche;
 architecture Behavioral of project_reti_logiche is
 
 type state_type is (IDLE,RST,S0,S1,S2,S3,S4,S5,S6,S7);
-signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
+signal next_state : state_type := IDLE;
 signal operand_valid : std_logic := '0';
 signal todo_output : std_logic := '0';
 signal index_masc : integer range 0 to 7;
@@ -75,7 +75,8 @@ begin
     begin
         if i_rst = '1' then
             next_state <= RST;
-        elsif i_clk'event and i_clk = '0' then
+--        elsif i_clk'event and i_clk = '0' then
+        else
             case current_state is
             
                 when IDLE => 
@@ -130,7 +131,7 @@ begin
     end process lambda ;
 
     ---Define state
-    delta:process(current_state,i_clk,i_start,i_data,todo_output,index_masc,masc_di_entrata,
+    delta:process(current_state,i_clk,i_start,i_data,todo_output,index_masc,masc_di_entrata,operand_valid,
                    punt_da_valutare_x,punt_centroide_x, punt_da_valutare_y,punt_centroide_y, 
                    distance_min,difference_value_x,difference_value_y,difference_value)
     
@@ -156,46 +157,52 @@ begin
                      difference_value_x <= (others => '0');
                      difference_value_y <= (others => '0');
                      difference_value <= (others => '0');
-                    
-                        
-                     if i_start = '1' then
-                        o_address <= (others => '0');
+                     o_address <= (others => '0');
+                     if i_start = '1' then 
                         o_en <= '1';
                      end if;
                      
                   when S0 =>
                      --Read maschera valore
-                     masc_di_entrata <= i_data;
-                     o_address <= std_logic_vector(to_unsigned(17,16));
+                        
+                        masc_di_entrata <= i_data;
                      
                   when S1 =>
+                     o_address <= std_logic_vector(to_unsigned(17,16));
                      --Read the punto da valutare X
                      punt_da_valutare_x <= i_data;
-                     o_address <= std_logic_vector(to_unsigned(18,16));
+                     
                      
                   when S2 =>
+                     o_address <= std_logic_vector(to_unsigned(18,16));
                      --Read the punto da valutare Y
                       punt_da_valutare_y <= i_data;
                        
                      
+                     
                   when S3 =>
                       punt_centroide_x <= (others => '0');
                       punt_centroide_y <= (others => '0');
-                      
                     
-                         if index_masc <= 6 then    ---Problem here
-                              if masc_di_entrata(index_masc) = '0' then
-                                 operand_valid <= '0';
-                                 index_masc <= index_masc + 1;
-                              else
-                                 o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
-                                 operand_valid <= '1';
-                              end if;
-                          else
-                            todo_output <= '1';
-                          end if;                     
-                
-                  
+                        if index_masc <= 6 then   
+                            if masc_di_entrata(index_masc) = '0'   then
+                                operand_valid <= '0';
+                                index_masc <= index_masc + 1;
+                             else 
+                                operand_valid <= '1';
+                                o_address <= std_logic_vector(to_unsigned(2*index_masc+1,16));
+                             end if;
+                        else
+                             todo_output <= '1';
+                             if masc_di_entrata(7) = '1' then
+                                    o_address <= std_logic_vector(to_unsigned(2*7+1,16));
+                                    operand_valid <= '1';
+                             else 
+                                    operand_valid <= '0';
+                             end if; 
+                        end if; 
+                    
+                    
                   when S4 =>
                      punt_centroide_x <= i_data;
                      if punt_da_valutare_x > punt_centroide_x then
@@ -210,9 +217,9 @@ begin
                         o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
                      else
                         operand_valid <= '0';
-                            if todo_output = '0' and index_masc <=6 then
-                                index_masc <= index_masc + 1;
-                            end if;
+                        if todo_output = '0' and index_masc <=6 then
+                             index_masc <= index_masc + 1;
+                        end if;
                      end if;
                   
                   when S5 =>
@@ -255,4 +262,6 @@ begin
             end case;
         end if;
     end process delta;
+    
+    
 end Behavioral;
