@@ -1,3 +1,5 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-WARNING: "D:\Software\Vivado_2018.3\Vivado\2018.3\data/verilog/src/unisims/LDCE.v" Line 163: Timing violation in scope /project_tb/UUT/todo_output_reg/TChk163_307 at time 354335 ps $setuphold (posedge G,negedge D,(0:0:0),(0:0:0),notifier,in_clk_enable_p,in_clk_enable_p,G_dly,D_dly) 
+Failure: TEST FALLITO
+Time: 2653737 ps  Iteration: 1  Process: /project_tb/test  File: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd
+$finish called at time : 2653737 ps : File "D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd" Line 122

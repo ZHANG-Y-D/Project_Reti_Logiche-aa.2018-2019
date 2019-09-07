@@ -2,11 +2,13 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Thu Aug 29 15:50:45 2019
-# Process ID: 4704
+# Start of session at: Sat Aug 31 21:35:04 2019
+# Process ID: 2152
 # Current directory: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim
 # Command line: wbtcv.exe -mode batch -source D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/webtalk.log
 # Journal file: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim\webtalk.jou
 #-----------------------------------------------------------
 source D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/synth/func/xsim/xsim.dir/project_tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 82.188 ; gain = 0.000
+INFO: [Common 17-206] Exiting Webtalk at Sat Aug 31 21:35:13 2019...

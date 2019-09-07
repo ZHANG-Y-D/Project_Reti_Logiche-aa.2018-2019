@@ -25,7 +25,7 @@ set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.cache/wt [current_project]
 set_property parent.project_path D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language Verilog [current_project]
+set_property target_language VHDL [current_project]
 set_property ip_output_repo d:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sources_1/new/project_reti_logiche.vhd

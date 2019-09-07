@@ -47,7 +47,6 @@ signal next_state : state_type := IDLE;
 signal current_state : state_type := IDLE;
 signal operand_valid : std_logic := '0';
 signal todo_output : std_logic := '0';
-signal finished_init : std_logic := '0';
 signal index_masc : integer range 0 to 7;
 signal masc_di_entrata : std_logic_vector(7 downto 0) := (others => '0');
 signal punt_da_valutare_x : std_logic_vector(7 downto 0) := (others => '0');
@@ -66,23 +65,23 @@ begin
     begin
         if i_rst='1' then
             current_state <= RST;
-        elsif rising_edge(i_clk) then
+        elsif i_clk'event and i_clk = '0' then
             current_state <= next_state;
         end if;
      end process state_reg;
 
     --change state
-    lambda: process(current_state,i_rst,i_start,operand_valid,todo_output,finished_init,i_clk)
+    lambda: process(current_state,i_rst,i_start,operand_valid,todo_output,i_clk)
     begin
+        if i_rst = '1' then
+            next_state <= RST;
+        elsif i_clk'event and i_clk = '0' then
             case current_state is
             
                 when IDLE => 
-                    if i_rst = '1' then
-                        next_state <= RST;
-                    end if;
-
+                    
                 when RST =>
-                    if finished_init = '1' then
+                    if i_start = '1' then
                         next_state <= S0;
                     end if;
                     
@@ -127,8 +126,8 @@ begin
                         next_state <= S7;
 
             end case;
-
-end process lambda ;
+       end if;
+    end process lambda ;
 
     ---Define state
     delta:process(current_state,i_clk,i_start,i_data,todo_output,index_masc,masc_di_entrata,
@@ -137,6 +136,7 @@ end process lambda ;
     
    
     begin
+      if i_clk'event and i_clk = '0' then
             case current_state is
                   when IDLE =>
                     
@@ -149,7 +149,6 @@ end process lambda ;
                      masc_di_entrata <= (others => '0');
                      punt_da_valutare_x <= (others => '0');
                      punt_da_valutare_y <= (others => '0');
-                     finished_init <= '0';
                      punt_centroide_x <= (others => '0');
                      punt_centroide_y <= (others => '0');
                      distance_min <= std_logic_vector(to_unsigned( 512 , 16));
@@ -162,14 +161,10 @@ end process lambda ;
                      if i_start = '1' then
                         o_address <= (others => '0');
                         o_en <= '1';
-                        finished_init <= '1';
                      end if;
                      
                   when S0 =>
                      --Read maschera valore
-                 
-                         --Read maschera valore
-
                      masc_di_entrata <= i_data;
                      o_address <= std_logic_vector(to_unsigned(17,16));
                      
@@ -188,7 +183,7 @@ end process lambda ;
                       punt_centroide_y <= (others => '0');
                       
                     
-                         if index_masc <= 6 then
+                         if index_masc <= 6 then    ---Problem here
                               if masc_di_entrata(index_masc) = '0' then
                                  operand_valid <= '0';
                                  index_masc <= index_masc + 1;
@@ -215,11 +210,9 @@ end process lambda ;
                         o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
                      else
                         operand_valid <= '0';
-                        if rising_edge(i_clk) then 
                             if todo_output = '0' and index_masc <=6 then
                                 index_masc <= index_masc + 1;
                             end if;
-                        end if;
                      end if;
                   
                   when S5 =>
@@ -232,7 +225,6 @@ end process lambda ;
                      
                      difference_value <= difference_value_x + difference_value_y;
                      
-                     if rising_edge(i_clk) then
                           if distance_min > difference_value then
                                 distance_min <= difference_value;
                                 o_data <= (others => '0');
@@ -247,7 +239,6 @@ end process lambda ;
                           if todo_output = '0' and index_masc <=6  then
                                 index_masc <= index_masc + 1;
                           end if;
-                      end if;
                         
                      operand_valid <= '0';
                      
@@ -262,6 +253,6 @@ end process lambda ;
                       
                 
             end case;
-
+        end if;
     end process delta;
 end Behavioral;
