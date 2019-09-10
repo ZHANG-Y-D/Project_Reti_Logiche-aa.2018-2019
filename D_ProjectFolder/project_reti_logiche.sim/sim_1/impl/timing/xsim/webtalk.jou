@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Sep 10 11:56:53 2019
+# Process ID: 2868
+# Current directory: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/impl/timing/xsim
+# Command line: wbtcv.exe -mode batch -source D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/impl/timing/xsim/xsim.dir/project_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/impl/timing/xsim/webtalk.log
+# Journal file: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/impl/timing/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.sim/sim_1/impl/timing/xsim/xsim.dir/project_tb_time_impl/webtalk/xsim_webtalk.tcl -notrace
