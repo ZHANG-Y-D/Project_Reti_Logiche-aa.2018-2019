@@ -1,5 +1,6 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
+WARNING: "D:\Software\Vivado_2018.3\Vivado\2018.3\data/verilog/src/unisims/FDRE.v" Line 144: Timing violation in scope /project_tb/UUT/operand_valid_reg/TChk144_1043 at time 205334 ps $setuphold (negedge C,negedge D,(0:0:0),(0:0:0),notifier,in_clk_enable_n,in_clk_enable_n,C_dly,D_dly) 
 Failure: Simulation Ended!, TEST PASSATO
-Time: 6407874 ps  Iteration: 1  Process: /project_tb/test  File: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd
-$finish called at time : 6407874 ps : File "D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd" Line 354
+Time: 4907876 ps  Iteration: 1  Process: /project_tb/test  File: D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd
+$finish called at time : 4907876 ps : File "D:/Project_Polimi/Project_Reti_Logiche/D_ProjectFolder/project_reti_logiche.srcs/sim_1/new/test_brench.vhd" Line 125

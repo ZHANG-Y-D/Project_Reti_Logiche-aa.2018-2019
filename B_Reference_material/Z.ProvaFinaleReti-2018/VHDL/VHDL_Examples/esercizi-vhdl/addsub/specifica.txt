@@ -1,7 +1,0 @@
-1 - Descrivere in VHDL un half adder
-
-2 - Descrivere in VHDL un full adder utilizzando il componente half adder precedentemente definito
-
-3 - Descrivere in VHDL un ripple-carry adder a 4 bit utilizzando il componente full adder precedentemente definito
-
-4 - Descrivere in VHDL un modulo con tre ingressi A, B (a 4 bit) e notAdd_sub (ad 1 bit) e due uscite C (a 4 bit) e OVF (ad 1 bit). Se notAdd_sub=0, il modulo esegue la somma in complemento a 2 dei due numeri in ingresso, in alternativa la sottrazione e presenta il risultato sull'uscita C; su OVF viene riportato l'eventuale overflow. Si consiglia di utilizzare il componente ripple-carry adder precedentemente realizzato.

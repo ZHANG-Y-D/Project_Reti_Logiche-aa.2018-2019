@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Sep 10 12:25:57 2019
+| Date         : Tue Sep 10 15:02:51 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file project_reti_logiche_control_sets_placed.rpt
 | Design       : project_reti_logiche
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    22 |
-| Unused register locations in slices containing registers |    97 |
+| Number of unique control sets                            |    23 |
+| Unused register locations in slices containing registers |    91 |
 +----------------------------------------------------------+-------+
 
 
@@ -38,8 +38,8 @@ Table of Contents
 |      4 |            2 |
 |      5 |            1 |
 |      6 |            1 |
-|      8 |            6 |
-|      9 |            1 |
+|      8 |            7 |
+|     15 |            1 |
 +--------+--------------+
 
 
@@ -52,9 +52,9 @@ Table of Contents
 | No           | No                    | No                     |               6 |            4 |
 | No           | No                    | Yes                    |               4 |            2 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              16 |           14 |
-| Yes          | No                    | Yes                    |               4 |            2 |
-| Yes          | Yes                   | No                     |              57 |           14 |
+| Yes          | No                    | No                     |              24 |           15 |
+| Yes          | No                    | Yes                    |               4 |            1 |
+| Yes          | Yes                   | No                     |              63 |           13 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -64,28 +64,29 @@ Table of Contents
 +------------------+-------------------------------+-------------------------------+------------------+----------------+
 |   Clock Signal   |         Enable Signal         |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
 +------------------+-------------------------------+-------------------------------+------------------+----------------+
-| ~i_clk_IBUF_BUFG | o_data[7]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_en_i_1_n_0                  |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[0]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_done_i_1_n_0                |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[2]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[1]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[5]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_we_i_1_n_0                  |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[4]_i_1_n_0             |                               |                1 |              1 |
-| ~i_clk_IBUF_BUFG | o_data[6]_i_1_n_0             |                               |                1 |              1 |
 | ~i_clk_IBUF_BUFG | o_data[3]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[1]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[0]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[5]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[2]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[4]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[7]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_data[6]_i_1_n_0             |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_done_i_1_n_0                |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_we_i_1_n_0                  |                               |                1 |              1 |
+| ~i_clk_IBUF_BUFG | o_en_i_1_n_0                  |                               |                1 |              1 |
 | ~i_clk_IBUF_BUFG |                               | i_rst_IBUF                    |                2 |              4 |
-| ~i_clk_IBUF_BUFG | next_state[3]_i_1_n_0         | i_rst_IBUF                    |                2 |              4 |
-| ~i_clk_IBUF_BUFG | o_address[4]_i_1_n_0          |                               |                3 |              5 |
+| ~i_clk_IBUF_BUFG | next_state[3]_i_1_n_0         | i_rst_IBUF                    |                1 |              4 |
+| ~i_clk_IBUF_BUFG | o_address[4]_i_1_n_0          |                               |                2 |              5 |
 | ~i_clk_IBUF_BUFG |                               |                               |                4 |              6 |
-| ~i_clk_IBUF_BUFG | difference_value_x[7]_i_2_n_0 | difference_value_x[7]_i_1_n_0 |                2 |              8 |
-| ~i_clk_IBUF_BUFG | masc_di_entrata[7]_i_2_n_0    | masc_di_entrata[7]_i_1_n_0    |                2 |              8 |
-| ~i_clk_IBUF_BUFG | punt_centroide_y[7]_i_2_n_0   | punt_centroide_y[7]_i_1_n_0   |                2 |              8 |
-| ~i_clk_IBUF_BUFG | punt_centroide_x[7]_i_2_n_0   | punt_centroide_x[7]_i_1_n_0   |                2 |              8 |
+| ~i_clk_IBUF_BUFG | difference_value[7]_i_1_n_0   |                               |                2 |              8 |
+| ~i_clk_IBUF_BUFG | difference_value[7]_i_1_n_0   | difference_value[15]_i_1_n_0  |                2 |              8 |
+| ~i_clk_IBUF_BUFG | masc_di_entrata[7]_i_2_n_0    | masc_di_entrata[7]_i_1_n_0    |                1 |              8 |
 | ~i_clk_IBUF_BUFG | punt_da_valutare_y[7]_i_2_n_0 | punt_da_valutare_y[7]_i_1_n_0 |                1 |              8 |
+| ~i_clk_IBUF_BUFG | punt_centroide_x[7]_i_2_n_0   | punt_centroide_x[7]_i_1_n_0   |                2 |              8 |
+| ~i_clk_IBUF_BUFG | punt_centroide_y[7]_i_2_n_0   | punt_centroide_y[7]_i_1_n_0   |                2 |              8 |
 | ~i_clk_IBUF_BUFG | punt_da_valutare_x[7]_i_2_n_0 | punt_da_valutare_x[7]_i_1_n_0 |                2 |              8 |
-| ~i_clk_IBUF_BUFG | distance_min[8]_i_2_n_0       | distance_min[8]_i_1_n_0       |                3 |              9 |
+| ~i_clk_IBUF_BUFG | distance_min[15]_i_2_n_0      | distance_min[15]_i_1_n_0      |                3 |             15 |
 +------------------+-------------------------------+-------------------------------+------------------+----------------+
 
 

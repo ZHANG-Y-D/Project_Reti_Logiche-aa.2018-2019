@@ -127,8 +127,6 @@ begin
     delta:process(current_state,i_clk,i_start,i_data,todo_output,index_masc,
                     masc_di_entrata,operand_valid,punt_da_valutare_x, punt_da_valutare_y,distance_min)
     
-    variable difference_value_x :std_logic_vector(15 downto 0) := (others => '0');
-    variable difference_value_y :std_logic_vector(15 downto 0) := (others => '0');
     variable difference_value :std_logic_vector(15 downto 0) := (others => '0');
     variable punt_centroide_x : std_logic_vector(7 downto 0) := (others => '0');
     variable punt_centroide_y : std_logic_vector(7 downto 0) := (others => '0');
@@ -152,8 +150,6 @@ begin
                      punt_centroide_y := (others => '0');
                      distance_min <= std_logic_vector(to_unsigned( 512 , 16));
                      index_masc <= 0;
-                     difference_value_x := (others => '0');
-                     difference_value_y := (others => '0');
                      difference_value := (others => '0');
                      
                      
@@ -208,60 +204,52 @@ begin
                         end if;
                     
                   when S4 =>
-                   if operand_valid = '1' then
-                     if punt_da_valutare_x > punt_centroide_x then
-                        difference_value_x := punt_da_valutare_x - punt_centroide_x + "0000000000000000";
-                     else
-                        difference_value_x := punt_centroide_x - punt_da_valutare_x + "0000000000000000";
-                     end if;
+                     if operand_valid = '1' then
                      
-                   
-                     if distance_min >= difference_value_x then
-                        operand_valid <= '1';
-                        o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
-                     else
-                        operand_valid <= '0';
-                        if todo_output = '0' and index_masc <=6 then
-                             index_masc <= index_masc + 1;
-                        end if;
-                     end if;
-                  
-                      if operand_valid = '1' then
-                        punt_centroide_y := i_data;
-                      end if;
-                 end if;   
+                         if punt_da_valutare_x > punt_centroide_x then
+                            difference_value := punt_da_valutare_x - punt_centroide_x + "0000000000000000";
+                         else
+                            difference_value := punt_centroide_x - punt_da_valutare_x + "0000000000000000";
+                         end if;
+                       
+                         if distance_min >= difference_value then
+                            operand_valid <= '1';
+                            o_address <= std_logic_vector(to_unsigned(2*index_masc+2,16));
+                         else
+                            operand_valid <= '0';
+                            if todo_output = '0' and index_masc <=6 then
+                                 index_masc <= index_masc + 1;
+                            end if;
+                         end if;
+                      
+                         if operand_valid = '1' then
+                            punt_centroide_y := i_data;
+                         end if;
+                         
+                     end if;   
                  
                  
                   when S5 =>
-                    
-                    
                   if operand_valid = '1' then
-                    if punt_da_valutare_y > punt_centroide_y then
-                        difference_value_y := punt_da_valutare_y - punt_centroide_y + "0000000000000000";
+                     if punt_da_valutare_y > punt_centroide_y then
+                        difference_value := punt_da_valutare_y - punt_centroide_y +difference_value;
                      else
-                        difference_value_y := punt_centroide_y - punt_da_valutare_y + "0000000000000000";
+                        difference_value := punt_centroide_y - punt_da_valutare_y +difference_value;
                      end if;
-                     
-                     difference_value := difference_value_x + difference_value_y;
-                     
-                          if distance_min > difference_value then
-                                distance_min <= difference_value;
-                                o_data <= (others => '0');
-                                o_data(index_masc) <= '1';
-                          elsif distance_min = difference_value then
-                                o_data(index_masc) <= '1';
-                          else
-                                --do nothing
-                          end if;
-                       
-                      
-                          if todo_output = '0' and index_masc <=6  then
-                                index_masc <= index_masc + 1;
-                          end if;
-                        
+                     if distance_min > difference_value then
+                            distance_min <= difference_value;
+                            o_data <= (others => '0');
+                            o_data(index_masc) <= '1';
+                     elsif distance_min = difference_value then
+                            o_data(index_masc) <= '1';
+                     else
+                            --do nothing
+                     end if;
+                     if todo_output = '0' and index_masc <=6  then
+                            index_masc <= index_masc + 1;
+                     end if;
                      operand_valid <= '0';
-                    end if; 
-                    
+                 end if; 
                     
                   when S6 =>
                      o_address <= std_logic_vector(to_unsigned(19,16));
@@ -271,11 +259,7 @@ begin
                   when S7 =>
                       o_done <= '0';
                    
-                      
-                
             end case;
         end if;
     end process delta;
-    
-    
 end Behavioral;

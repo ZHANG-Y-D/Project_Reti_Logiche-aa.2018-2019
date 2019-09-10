@@ -1,8 +1,0 @@
-Progettare una macchina a stati finiti dotata di un ingresso x ed un'uscita z che normalmente assume
-valore 0. L'uscita assume valore 1 per un ciclo di clock qualora la stringa formata dagli ultimi 4 bit
-ricevuti sia palindroma, cioè risulti uguale se letta da sinistra a destra o da destra a sinistra. Per
-eseguire la sintesi si utilizzi:
-- il classico approccio di sintesi e ottimizzazione basato sulla tabella degli stati, visto a lezione,
-- un approccio modulare basato sull'instanziazione ed interconnessione di una serie di componenti
-base (registri, sommatori, sottrattori, multiplexer, logica sparsa, ...).
-Descrivere in VHDL la specifica delle due soluzioni ottenute.

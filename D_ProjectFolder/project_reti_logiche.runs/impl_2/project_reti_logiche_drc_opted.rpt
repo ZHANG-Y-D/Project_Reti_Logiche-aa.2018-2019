@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Sep 10 12:25:53 2019
+| Date         : Tue Sep 10 15:02:47 2019
 | Host         : DESKTOP-1EDT96P running 64-bit major release  (build 9200)
 | Command      : report_drc -file project_reti_logiche_drc_opted.rpt -pb project_reti_logiche_drc_opted.pb -rpx project_reti_logiche_drc_opted.rpx
 | Design       : project_reti_logiche
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: design_1
+          Floorplan: checkpoint_project_reti_logiche
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
@@ -61,42 +61,42 @@ Related violations: <none>
 
 IOSR-1#1 Warning
 IOB set reset sharing  
-IO i_data[0] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[0] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#2 Warning
 IOB set reset sharing  
-IO i_data[1] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[1] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#3 Warning
 IOB set reset sharing  
-IO i_data[2] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[2] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#4 Warning
 IOB set reset sharing  
-IO i_data[3] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[3] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#5 Warning
 IOB set reset sharing  
-IO i_data[4] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[4] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#6 Warning
 IOB set reset sharing  
-IO i_data[5] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[5] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#7 Warning
 IOB set reset sharing  
-IO i_data[6] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[6] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#8 Warning
 IOB set reset sharing  
-IO i_data[7] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO i_data[7] connects to flops which have these masc_di_entrata[7]_i_1_n_0, punt_da_valutare_x[7]_i_1_n_0, punt_centroide_x[7]_i_1_n_0, punt_da_valutare_y[7]_i_1_n_0, punt_centroide_y[7]_i_1_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 

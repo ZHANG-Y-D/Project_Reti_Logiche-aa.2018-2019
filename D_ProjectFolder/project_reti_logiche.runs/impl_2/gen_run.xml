@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a200tfbg484-1" LaunchTime="1568111121">
+<GenRun Id="impl_2" LaunchPart="xc7a200tfbg484-1" LaunchTime="1568120535">
+  <File Type="OPT-HWDEF" Name="project_reti_logiche.hwdef"/>
+  <File Type="ROUTE-BUS-SKEW" Name="project_reti_logiche_bus_skew_routed.rpt"/>
+  <File Type="PA-DCP" Name="project_reti_logiche.dcp"/>
   <File Type="BITSTR-BMM" Name="project_reti_logiche_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="project_reti_logiche_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="project_reti_logiche_timing_summary_init.rpt"/>
@@ -10,7 +13,6 @@
   <File Type="ROUTE-PWR-SUM" Name="project_reti_logiche_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="project_reti_logiche_reports.tcl"/>
   <File Type="OPT-DRC" Name="project_reti_logiche_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="project_reti_logiche.hwdef"/>
   <File Type="PWROPT-DCP" Name="project_reti_logiche_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="project_reti_logiche_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="project_reti_logiche_timing_summary_pwropted.rpt"/>
@@ -22,7 +24,6 @@
   <File Type="PLACE-CTRL" Name="project_reti_logiche_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="project_reti_logiche_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="project_reti_logiche_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BGN" Name="project_reti_logiche.bgn"/>
   <File Type="PLACE-TIMING" Name="project_reti_logiche_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="project_reti_logiche_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="project_reti_logiche.bin"/>
@@ -52,7 +53,6 @@
   <File Type="ROUTE-TIMING-RPX" Name="project_reti_logiche_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="project_reti_logiche_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="project_reti_logiche_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="project_reti_logiche_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="project_reti_logiche_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="project_reti_logiche_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="project_reti_logiche_postroute_physopt.dcp"/>
@@ -66,6 +66,7 @@
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="project_reti_logiche_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="project_reti_logiche.rbt"/>
   <File Type="BITSTR-NKY" Name="project_reti_logiche.nky"/>
+  <File Type="BG-BGN" Name="project_reti_logiche.bgn"/>
   <File Type="BG-DRC" Name="project_reti_logiche.drc"/>
   <File Type="RDI-RDI" Name="project_reti_logiche.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
@@ -96,9 +97,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
