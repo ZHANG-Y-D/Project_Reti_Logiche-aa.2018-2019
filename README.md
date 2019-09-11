@@ -1,4 +1,4 @@
-# Project_Reti_Logiche
+# Project_Reti_Logiche [Politecnico di Milano]
 ###### This is project(prova finale) of Reti_Logiche lesson in 2018/2019
 
 ## Attention
@@ -15,4 +15,4 @@ Please open the [README.pdf](https://github.com/ZHANGYD666/Project_Reti_Logiche/
 Enjoy your VHDL trip!!!
 
 If you have some questions, you can put [issues](https://github.com/ZHANGYD666/Project_Reti_Logiche/issues) here.
-And if you think you konw my emil, you also can E-mail me (Tips: The polimi student may be able to guess my E-mail).I am very happy to answer your questions(in English Italian or Chinese).
+And if you think you konw my emil, you also can E-mail me (Tips: The polimi student may be able to guess my E-mail). I am very happy to answer your questions (in English Italian or Chinese).
