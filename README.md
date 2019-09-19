@@ -15,3 +15,7 @@ Please open the [README.pdf](https://github.com/ZHANGYD666/Project_Reti_Logiche/
 Enjoy your VHDL trip!!!
 
 If you have some questions, please put [issues](https://github.com/ZHANGYD666/Project_Reti_Logiche/issues) here or E-mail me(Polimi E-mail box). I'm very happy to answer your questions (in English Italian or Chinese).
+
+## Problem
+This project may still have a lot of optimization space.Like these three states can be optimized。
+![image](https://github.com/ZHANGYD666/Project_Reti_Logiche/blob/master/F_ImageForMD/WechatIMG963.png)
